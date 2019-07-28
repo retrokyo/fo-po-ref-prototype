@@ -1,0 +1,19 @@
+.SearchBar {
+    display: flex;
+    flex-direction: column;
+}
+
+.SearchBar-Fields {
+    display: inline-flex;
+    justify-content: space-evenly;
+    width: 25%;
+    margin-left: 37%;
+}
+
+.SearchBar-Fields input {
+    width: 18rem;
+}
+.SearchBar-Submit {
+    display: inline-flex;
+    justify-content: center;
+}

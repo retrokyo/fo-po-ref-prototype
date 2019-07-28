@@ -1,0 +1,21 @@
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
+.Logo-Header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  background: #000;
+  width: 25%;
+  height: 105px;
+  margin-left: 37%;
+  margin-top: 10%;
+}
+
+.Logo-Header img {
+  justify-content: center;
+  height: 105px;
+}

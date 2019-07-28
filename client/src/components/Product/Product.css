@@ -1,0 +1,43 @@
+.Product {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    margin-left: 25%;
+}
+
+.Product h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.Product h3 {
+    margin-bottom:0.2rem;
+    font-weight: 500;
+}
+
+.Product .Product-Image {
+    display: inline-flex;
+    margin-bottom: 2rem;
+    margin-right: 5rem;
+}
+
+.Product .Product-Image img {
+    height: 128px;
+    width: 128px;
+}
+
+.Product-Text {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.Product-Info {
+    display: inline-flex;
+    flex-direction: row;
+}
+
+.Product-Usage {
+    margin-right: 0.2rem;
+}
