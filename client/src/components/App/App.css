@@ -1,7 +1,6 @@
 .App {
   display: flex;
   flex-direction: column;
-  background-color: #f6f7f8;
 }
 
 .Logo-Header {
@@ -9,14 +8,12 @@
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
-  background: #000;
-  width: 25%;
-  height: 105px;
-  margin-left: 37%;
-  margin-top: 10%;
+  width: 34%;
+  margin: 2.5% 33% 16px 33%;
 }
 
 .Logo-Header img {
-  justify-content: center;
-  height: 105px;
+  object-fit: contain;
+  height: auto;
+  width: 100%;
 }
