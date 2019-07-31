@@ -1,80 +1,19 @@
-.Search-Inputs {
-    display: flex;
-    justify-content: center;
-    width: 34%;
-    margin-left: 33%;
-    margin-right: 33%;
-}
-
 .SearchBar {
-    display: inherit;
+    display: flex;
     flex-direction: column;
-    width: 100%;
-    height: auto;
 }
 
 .SearchBar-Fields {
-    display: inherit;
-    flex-direction: row;
-    width: 100%;
-    height: auto;
+    display: inline-flex;
+    justify-content: space-evenly;
+    width: 25%;
+    margin-left: 37%;
 }
 
 .SearchBar-Fields input {
-    width: 50%;
-    height: 38.4%;
-    text-align: center;
-    font-size: 18px;
-    align-self: center;
-    border-radius: 4px;
-    margin-left: 140px;
-    margin-right: 5px;
+    width: 18rem;
 }
-
-
-.SearchBar-Fields select {
-    width: 11%;
-    border-radius: 4px;
-    height: 18px;
-    align-self: center;
-}
-
 .SearchBar-Submit {
     display: inline-flex;
     justify-content: center;
-    margin-top: 6px;
-    height: 20px;
-}
-
-.SearchBar-Submit a {
-    background-color: #BCFF6B;
-    border-radius: 16px;
-    padding: 5px 0px 5px 0px;
-    width: 100px;
-    height: 100%;
-    text-align: center;
-}
-
-@media screen and (max-width: 411px) {
-    .Search-Inputs {
-        width: 100%;
-        margin: 0px;
-        justify-content: center;
-    }
-
-
-    .SearchBar-Fields {
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .SearchBar-Fields input {
-        margin: 0px;
-        width: 70%;
-        font-size: 16px;
-    }
-
-    .SearchBar-Fields select {
-        width: 19%;
-    }
 }
