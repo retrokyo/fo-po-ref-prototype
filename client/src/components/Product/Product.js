@@ -22,7 +22,7 @@ class Product extends Component {
                     <img src={logo_square} alt="" />
                 </div>
                 <div className="Product-Text">
-                    <h2 className="Product-Name">{this.props.name}</h2>
+                <h2 className="Product-Name">{this.props.name}</h2>
                     <div className="Product-Info">
                         <div className="Product-Usage">
                         <h3>Usage</h3>
