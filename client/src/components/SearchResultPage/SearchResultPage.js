@@ -9,14 +9,14 @@ class SearchResultPage extends Component {
     
       render() {
         return (
-            <div>
-            <div className='static-element'>
-                <div className='logo-header'>
-                    <img src={logo_header} alt='' />
+            <div className= 'search-result'>
+                <div className='static-element'>
+                    <div className='logo-header'>
+                        <img src={logo_header} alt='' />
+                    </div>
                 </div>
-            </div>
-                <SearchBar search={this.props.search} />
-            </div>
+                    <SearchBar search={this.props.search} />
+                </div>
         );
     };
 }

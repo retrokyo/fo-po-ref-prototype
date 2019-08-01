@@ -47,7 +47,7 @@ class SearchBar extends Component {
                         hash: '#helpful',
                         state: { App: true}
                     }}>
-                        <a>Let's go</a>
+                        Let's go
                     </Link>
                 </div> 
             </div>
