@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './SearchBar.css';
 
 class SearchBar extends Component {
@@ -30,8 +31,8 @@ class SearchBar extends Component {
 
     render () {
         return (
-            <div className='SearchBar'>
-                <div className='SearchBar-Fields'>
+            <div className='search-bar'>
+                <div className='search-fields'>
                     <input placeholder='What product are you looking for?' onChange={this.handleProductChange} />
                     <select defaultValue='' onChange={this.handleLocationChange}>
                         <option value=''>Where?</option>
@@ -39,8 +40,15 @@ class SearchBar extends Component {
                         <option value='us'>US</option>
                     </select>
                 </div>
-                <div className="SearchBar-Submit" onClick={this.handleSearch}>
-                    <a>Let's go</a>
+                <div className='search-submit' onClick={this.handleSearch}>
+                    <Link to={{
+                        pathname: '/results',
+                        search: `?term=${this.state.term}&loc=${this.state.location}`,
+                        hash: '#helpful',
+                        state: { App: true}
+                    }}>
+                        <a>Let's go</a>
+                    </Link>
                 </div> 
             </div>
         )

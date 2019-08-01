@@ -1,0 +1,15 @@
+.logo-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    width: 34%;
+    margin: 2.5% 33% 16px 33%;
+}
+  
+.logo-header img {
+    object-fit: contain;
+    height: auto;
+    width: 100%;
+}
+  

@@ -1,19 +1,13 @@
-.Search-Inputs {
+.search-bar {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     width: 34%;
     margin-left: 33%;
     margin-right: 33%;
 }
 
-.SearchBar {
-    display: inherit;
-    flex-direction: column;
-    width: 100%;
-    height: auto;
-}
-
-.SearchBar-Fields {
+.search-fields {
     display: inherit;
     flex-direction: row;
     width: 100%;
@@ -21,7 +15,7 @@
     flex-shrink: 0;
 }
 
-.SearchBar-Fields input {
+.search-fields input {
     width: 50%;
     height: 38.4%;
     text-align: center;
@@ -32,7 +26,7 @@
 }
 
 
-.SearchBar-Fields select {
+.search-fields select {
     width: 11%;
     border-radius: 4px;
     height: 18px;
@@ -40,15 +34,17 @@
     font-size: 16px;
 }
 
-.SearchBar-Submit {
+.search-submit {
     display: inline-flex;
     justify-content: center;
     margin-top: 6px;
     height: 20px;
     text-align: center;
+    padding: 3px;
+    margin: 10px, 0px, 0px, 0px;
 }
 
-.SearchBar-Submit a {
+.search-submit a {
     background-color: #BCFF6B;
     border-radius: 16px;
     padding: 5px 0px 5px 0px;
@@ -58,25 +54,25 @@
 }
 
 @media screen and (max-width: 411px) {
-    .Search-Inputs {
+    .search-bar {
         width: 100%;
         margin: 0px;
         justify-content: center;
     }
 
 
-    .SearchBar-Fields {
+    .search-fields {
         flex-direction: column;
         justify-content: center;
     }
 
-    .SearchBar-Fields input {
+    .search-fields input {
         margin: 0px;
         width: 70%;
         font-size: 16px;
     }
 
-    .SearchBar-Fields select {
+    .search-fields select {
         width: 19%;
     }
 }

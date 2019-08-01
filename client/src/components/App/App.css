@@ -1,24 +1,4 @@
-.App {
+.app {
   display: flex;
   flex-direction: column;
-}
-
-.Logo-Header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  overflow: hidden;
-  width: 34%;
-  margin: 2.5% 33% 16px 33%;
-}
-
-.Logo-Header img {
-  object-fit: contain;
-  height: auto;
-  width: 100%;
-}
-
-.SearchBar-Submit {
-  padding: 3px;
-  margin: 10px, 0px, 0px, 0px;
 }
