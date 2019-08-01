@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './Product.css';
 import logo_square from '../../logo_square.png';
 
@@ -22,23 +23,25 @@ class Product extends Component {
 
     render() {
         return (
-            <div className="Product">
-                <div className="Product-Image">
+            <div className="product-card">
+                <div className="product-image">
                     <img src={logo_square} alt="" />
                 </div>
-                <div className="Product-Text">
-                <h2 className="Product-Name">{this.capitalize(this.props.name)}</h2>
-                    <div className="Product-Info">
-                        <div className="Product-Usage">
-                        <h3>Usage</h3>
-                        <ul>{this.arrayParser(this.props.usage)}</ul>
-                        </div>
-                        <div className="Product-Ingredients">
-                            <h3>Ingredients</h3>
-                            <ul>{this.arrayParser(this.props.ingredients)}</ul>
+                <Link to={`/product/${this.props.name}`}>
+                    <div className="product-text">
+                    <h2 className="product-name">{this.capitalize(this.props.name)}</h2>
+                        <div className="product-info">
+                            <div className="product-usage">
+                            <h3>Usage</h3>
+                            <ul>{this.arrayParser(this.props.usage)}</ul>
+                         </div>
+                            <div className="product-ingredients">
+                                <h3>Ingredients</h3>
+                                <ul>{this.arrayParser(this.props.ingredients)}</ul>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </Link>
             </div>
         );
     }
