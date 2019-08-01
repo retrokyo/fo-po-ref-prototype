@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
-import '../SearchBar/SearchBar';
-import SearchBar from '../SearchBar/SearchBar';
+import SearchResultPage from '../SearchResultPage/SearchResultPage';
+import ProductPage from '../ProductPage/ProductPage';
 import ProductList from '../ProductList/ProductList';
 import dbCall from '../../util/dbCall';
-import logo_header from '../../logo_header.png';
-
 
 class App extends Component {
   constructor(props) {
@@ -27,18 +26,13 @@ class App extends Component {
 
   render() {
     return (
-        <div className='App'>      
-          <div className='Static-El'>
-            <div className='Logo-Header'>
-              <img src={logo_header} alt='' />
-            </div>
-            <div className="Search-Inputs">
-              <SearchBar search={this.dbCall} />
-            </div>
-          </div>
-          <div>
-            <ProductList products={this.state.dbResponse}/>
-          </div>
+        <div className='app'>
+          <SearchResultPage search={this.dbCall} />
+
+          <Route path={`/product/*`} component={ProductPage} />
+          <Route path='/results' render={(props) => (
+            <ProductList {...props} products={this.state.dbResponse} />)
+          }/>
         </div>
     );
   };
