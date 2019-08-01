@@ -16,6 +16,7 @@
 .SearchBar-Fields {
     display: inherit;
     flex-direction: row;
+    justify-content: center;
     width: 100%;
     height: auto;
     flex-shrink: 0;
@@ -23,11 +24,11 @@
 
 .SearchBar-Fields input {
     width: 50%;
-    height: 38.4%;
-    text-align: center;
+    min-width: 300px;
+    height: 30px;
+    text-align: left;
     font: 400 18px Arial;
     border-radius: 4px;
-    margin-left: 140px;
     margin-right: 5px;
 }
 
@@ -35,7 +36,7 @@
 .SearchBar-Fields select {
     width: 11%;
     border-radius: 4px;
-    height: 18px;
+    height: 35px;
     align-self: center;
     font-size: 16px;
 }
@@ -49,12 +50,13 @@
 }
 
 .SearchBar-Submit a {
-    background-color: #BCFF6B;
+    background-color: #eed1ff;
     border-radius: 16px;
-    padding: 5px 0px 5px 0px;
-    width: 100px;
-    height: 100%;
+    padding: 5px 10px 23px 10px;
     text-align: center;
+    border-style: solid;
+    border-color: blueviolet;
+    border-width: 2px;
 }
 
 @media screen and (max-width: 411px) {
