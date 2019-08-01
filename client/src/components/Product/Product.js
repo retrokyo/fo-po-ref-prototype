@@ -7,11 +7,16 @@ class Product extends Component {
         super(props);
 
         this.arrayParser = this.arrayParser.bind(this);
+        this.capitalize = this.capitalize.bind(this);
+    }
+
+    capitalize(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
     }
 
     arrayParser(array) {
         return array.map((item) => {
-            return <li>{item}</li>
+            return <li>{this.capitalize(item)}</li>
         });
     }
 
@@ -22,7 +27,7 @@ class Product extends Component {
                     <img src={logo_square} alt="" />
                 </div>
                 <div className="Product-Text">
-                <h2 className="Product-Name">{this.props.name}</h2>
+                <h2 className="Product-Name">{this.capitalize(this.props.name)}</h2>
                     <div className="Product-Info">
                         <div className="Product-Usage">
                         <h3>Usage</h3>

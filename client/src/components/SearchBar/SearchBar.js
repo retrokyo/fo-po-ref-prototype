@@ -35,8 +35,8 @@ class SearchBar extends Component {
                     <input placeholder='What product are you looking for?' onChange={this.handleProductChange} />
                     <select defaultValue='' onChange={this.handleLocationChange}>
                         <option value=''>Where?</option>
-                        <option value='JP'>JP</option>
-                        <option value='Test2'>Test2</option>
+                        <option value='jp'>JP</option>
+                        <option value='us'>US</option>
                     </select>
                 </div>
                 <div className="SearchBar-Submit" onClick={this.handleSearch}>
