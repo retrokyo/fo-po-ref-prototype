@@ -17,3 +17,8 @@
   height: auto;
   width: 100%;
 }
+
+.SearchBar-Submit {
+  padding: 3px;
+  margin: 10px, 0px, 0px, 0px;
+}
