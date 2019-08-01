@@ -1,4 +1,26 @@
 .app {
   display: flex;
   flex-direction: column;
+<<<<<<< HEAD
+=======
+}
+
+.Logo-Header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  overflow: initial;
+  width: 34%;
+  margin: 2.5% 33% 16px 33%;
+}
+
+.Logo-Header img {
+  object-fit: contain;
+  height: auto;
+  width: 100%;
+  max-width: 600px;
+  max-height: 650px;
+  min-width: 200px;
+  min-height: 65px;
+>>>>>>> master
 }
