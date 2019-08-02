@@ -48,6 +48,14 @@ class SearchBar extends Component {
                         <option value='jp'>JP</option>
                         <option value='us'>US</option>
                     </select>
+                    <div className='switch'>
+                        <label className='loc-tag'>JP</label>
+                        <label className='lang-switch'>
+                            <input type='checkbox' />
+                            <span className='slider-round'></span>
+                        </label>
+                        <label className='loc-tag'>US</label>
+                    </div>
                 </div>
                 <div className='search-submit' onClick={this.handleSearch}>
                     <Link to={{
