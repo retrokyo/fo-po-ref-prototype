@@ -4,7 +4,7 @@
     justify-content: center;
     overflow: initial;
     width: 34%;
-    margin: 2.5% 33% 16px 33%;
+    margin: 2.5% 33% 1em 33%;
 }
   
 .logo-header img {
@@ -16,4 +16,10 @@
     min-width: 200px;
     min-height: 65px;
 }
-  
+
+
+@media screen and (max-width: 411px) {
+    .logo-header {
+        margin-bottom: 0em;
+    }
+}
