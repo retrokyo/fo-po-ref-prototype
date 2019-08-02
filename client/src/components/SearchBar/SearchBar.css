@@ -38,18 +38,19 @@
     display: inline-flex;
     justify-content: center;
     margin-top: 6px;
-    height: 20px;
     text-align: center;
 }
 
 .search-submit a {
-    background-color: #eed1ff;
+    background-color: blueviolet;
     border-radius: 16px;
-    padding: 5px 10px 23px 10px;
+    padding: 0.5em 1em 0.5em 1em;
     text-align: center;
+    color: whitesmoke;
+    text-decoration-color: whitesmoke;
     border-style: solid;
     border-color: blueviolet;
-    border-width: 2px;
+    border-width: 0.5em;
 }
 
 @media screen and (max-width: 411px) {
