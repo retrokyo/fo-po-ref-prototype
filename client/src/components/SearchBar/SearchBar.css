@@ -67,12 +67,17 @@
     }
 
     .search-fields input {
-        margin: 0px;
-        width: 70%;
-        font-size: 16px;
+        width: 60%;
+        font-size: 1em;
+        margin: 1em auto 1em auto;
+        text-align: center;
     }
 
     .search-fields select {
-        width: 19%;
+        width: 25%;
+    }
+
+    .search-submit {
+        margin-top: 1em;
     }
 }
