@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './SearchResultPage.css';
 import '../SearchBar/SearchBar';
 import SearchBar from '../SearchBar/SearchBar';
@@ -12,7 +13,7 @@ class SearchResultPage extends Component {
             <div className= 'search-result'>
                 <div className='static-element'>
                     <div className='logo-header'>
-                        <img src={logo_header} alt='' />
+                        <Link to='/'><img src={logo_header} alt='' /></Link>
                     </div>
                 </div>
                     <SearchBar search={this.props.search} />

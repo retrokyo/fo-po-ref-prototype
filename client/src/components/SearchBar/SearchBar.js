@@ -13,6 +13,7 @@ class SearchBar extends Component {
         this.handleProductChange = this.handleProductChange.bind(this);
         this.handleLocationChange = this.handleLocationChange.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
+        this.handleEnter = this.handleEnter.bind(this);
     }
 
     handleProductChange(e) {
@@ -29,11 +30,22 @@ class SearchBar extends Component {
         e.preventDefault();
     }
 
+    handleEnter(e) {
+        if (e.key === 'Enter') {
+            this.props.search(this.state.term, this.state.location);
+
+            e.preventDefault();
+        }
+    }
+
     render () {
         return (
             <div className='search-bar'>
                 <div className='search-fields'>
-                    <input placeholder='What product are you looking for?' onChange={this.handleProductChange} />
+                    <input placeholder='What product are you looking for?' 
+                    onChange={this.handleProductChange} 
+                    onKeyPress={this.handleEnter} 
+                    />
                     <select defaultValue='' onChange={this.handleLocationChange}>
                         <option value=''>Where?</option>
                         <option value='jp'>JP</option>
