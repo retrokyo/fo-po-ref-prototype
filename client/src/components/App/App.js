@@ -29,7 +29,9 @@ class App extends Component {
         <div className='app'>
           <SearchResultPage search={this.dbCall} />
 
-          <Route path={`/product/*`} component={ProductPage} />
+          <Route path={`/product/*`} render={(props) => (
+            <ProductPage {...props} />)} />
+
           <Route path='/results' render={(props) => (
             <ProductList {...props} products={this.state.dbResponse} />)
           }/>
