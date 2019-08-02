@@ -11,7 +11,8 @@ class SearchResultPageWithRouter extends Component {
         const { match, location, history } = this.props
 
         return (
-            <div className= 'search-result'>
+           
+            <div className='search-result'>
                 <div className='static-element'>
                     <div className='logo-header'>
                         <Link to='/'><img src={logo_header} alt='' /></Link>
