@@ -23,6 +23,6 @@ class SearchResultPageWithRouter extends Component {
     };
 }
 
-const SearchPageResults = withRouter(SearchResultPageWithRouter);
+const SearchResultPage = withRouter(SearchResultPageWithRouter);
 
-export default SearchPageResults;
+export default SearchResultPage;
