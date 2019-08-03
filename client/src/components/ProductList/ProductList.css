@@ -3,7 +3,8 @@
     justify-content: center;
     flex-direction: column;
     width: 34%;
-    margin: 1.6em 33% 1.6em 33%; 
+    margin: 1.6em 33% 1.6em 33%;
+    padding-left: calc(100vw - 100%);
 }
 
 @media screen and (max-width: 411px) {

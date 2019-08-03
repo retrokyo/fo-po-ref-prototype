@@ -1,6 +1,7 @@
-body {
-    height: 100%;
-    background-color: black;
+.search-result {
+    background-color: goldenrod;
+    min-height: 1;
+    padding-left: calc(100vw - 100%);
 }
 
 .logo-header {
@@ -12,11 +13,6 @@ body {
     margin: 2.5% 33% 1em 33%;
 }
 
-.search-result {
-    background-color: goldenrod;
-    min-height: 1;
-}
-  
 .logo-header img {
     object-fit: contain;
     height: auto;
