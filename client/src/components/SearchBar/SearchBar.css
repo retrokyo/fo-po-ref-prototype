@@ -11,8 +11,13 @@
     display: inherit;
     flex-direction: row;
     justify-content: center;
-    width: 100%;
     height: auto;
+    border-style: solid;
+    border-width: 0.5em;
+    border-color: darkgray;
+    border-radius: 1em;
+    padding: 0.16em;
+    margin: 0em auto 0em auto;
 }
 
 .search-fields input {
@@ -38,21 +43,22 @@
 .search-submit {
     display: inline-flex;
     justify-content: center;
-    margin-top: 6px;
     text-align: center;
 }
 
 .search-submit a {
     background-color: blueviolet;
-    border-radius: 16px;
-    padding: 0.2em 0.5em 0.2em 0.5em;
+    border-radius: 1em;
+    padding: 0.4em 0.8em 0.4em 0.8em;
     text-align: center;
     color: whitesmoke;
+    font-weight: bold;
     text-decoration-color: whitesmoke;
+    width: 100%;
     border-style: solid;
-    border-color: blueviolet;
+    border-color: darkgray;
     border-width: 0.5em;
-    margin: 1.5em 0em 1.5em 0em;
+    margin: 0.16em 0.44em 1em 0.44em;
 }
 
 .switch {
@@ -64,6 +70,7 @@
     display: inline-flex;
     width: 60px;
     height: 34px;
+    margin: 0em 0.24em 0em 0.24em;
 }
   
 /* Hide default HTML checkbox */
@@ -81,7 +88,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: blueviolet;
+    background-color: darkgray;
     transition: .4s;
 }
   
@@ -92,12 +99,12 @@
     width: 26px;
     left: 4px;
     bottom: 4px;
-    background-color: white;
+    background-color: whitesmoke;
     transition: .4s;
 }
   
 input:checked + .slider-round {
-    background-color: blueviolet;
+    background-color: darkgray;
 }
 
 input:focus + .slider-round {
@@ -119,6 +126,10 @@ input:checked + .slider-round:before {
 
 .loc-tag {
     align-self: center;
+    padding: 0.48em;
+    border-style: solid;
+    border-radius: 0.4em;
+    border-width: 0.12em;
 }
 
 @media screen and (max-width: 411px) {
