@@ -45,7 +45,7 @@ class SearchBar extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (prevState.location != this.state.location) {
+        if (prevState.location !== this.state.location) {
             this.props.search(this.state.term, this.state.location);
             this.props.history.push(`/results?term=${this.state.term}&loc=${this.state.location}`);
         }
