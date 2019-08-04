@@ -7,7 +7,7 @@ class SearchBar extends Component {
         super(props);
         this.state = {
             term: '',
-            location: ''
+            location: 'jp'
         }
 
         this.handleProductChange = this.handleProductChange.bind(this);
@@ -21,7 +21,13 @@ class SearchBar extends Component {
     }
 
     handleLocationChange(e) {
-        this.setState({ location: e.target.value });
+        if (e.target.checked === true) {
+            this.setState({ location: 'us'})
+        }
+
+        else {
+            this.setState({ location: 'jp' })
+        }
     }
 
     handleSearch(e) {
@@ -33,8 +39,15 @@ class SearchBar extends Component {
     handleEnter(e) {
         if (e.key === 'Enter') {
             this.props.search(this.state.term, this.state.location);
-            this.props.history.push(`/results?term=${this.state.term}&loc=${this.state.location}`)
+            this.props.history.push(`/results?term=${this.state.term}&loc=${this.state.location}`);
             e.preventDefault();
+        }
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.location != this.state.location) {
+            this.props.search(this.state.term, this.state.location);
+            this.props.history.push(`/results?term=${this.state.term}&loc=${this.state.location}`);
         }
     }
 
@@ -43,15 +56,10 @@ class SearchBar extends Component {
             <div className='search-bar'>
                 <div className='search-fields'>
                     <input placeholder='What product are you looking for?' onChange={this.handleProductChange} onKeyPress={this.handleEnter} />
-                    <select defaultValue='' onChange={this.handleLocationChange}>
-                        <option value=''>Where?</option>
-                        <option value='jp'>JP</option>
-                        <option value='us'>US</option>
-                    </select>
                     <div className='switch'>
                         <label className='loc-tag'>JP</label>
                         <label className='lang-switch'>
-                            <input type='checkbox' />
+                            <input type='checkbox' onChange={this.handleLocationChange}/>
                             <span className='slider-round'></span>
                         </label>
                         <label className='loc-tag'>US</label>
@@ -61,8 +69,8 @@ class SearchBar extends Component {
                     <Link to={{
                         pathname: '/results',
                         search: `?term=${this.state.term}&loc=${this.state.location}`,
-                        hash: '#helpful',
-                        state: { App: true}
+                        hash: '',
+                        state: {}
                     }}>
                         Let's go
                     </Link>
