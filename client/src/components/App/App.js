@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import './App.css';
 import SearchResultPage from '../SearchResultPage/SearchResultPage';
 import ProductPage from '../ProductPage/ProductPage';
 import ProductList from '../ProductList/ProductList';
+import HeaderSearchBar from '../HeaderSearchBar/HeaderSearchBar';
 import dbCall from '../../util/dbCall';
 
 class App extends Component {
@@ -24,20 +25,37 @@ class App extends Component {
     });
   }
 
+  componentDidMount() {
+    this.props.history.push('/')
+  }
+
   render() {
     return (
         <div className='app'>
-          <SearchResultPage search={this.dbCall} />
+          <Switch>
+            <Route exact path='/' render={(props) => (
+              <SearchResultPage {...props} search={this.dbCall} />)} />
 
-          <Route path={`/product/*`} render={(props) => (
-            <ProductPage {...props} />)} />
+            <Route path='/(.+\/?|\??.*)' render={(props) => (
+              <HeaderSearchBar {...props} 
+                search={this.dbCall}
+                term={this.props.location.state.term}
+                location={this.props.location.state.location}
+                />)} />
+          </Switch>
 
-          <Route path='/results' render={(props) => (
-            <ProductList {...props} products={this.state.dbResponse} />)
-          }/>
+          <Switch>
+            <Route path={`/product/*`} render={(props) => (
+              <ProductPage {...props} />)} />
+
+            <Route path='/results' render={(props) => (
+              <ProductList {...props} products={this.state.dbResponse} />)} />
+            </Switch>
         </div>
     );
   };
 }
 
-export default App;
+const appWithRouter = withRouter(App);
+
+export default appWithRouter;
