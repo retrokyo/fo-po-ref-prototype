@@ -10,7 +10,7 @@ class SearchResultPageWithRouter extends Component {
         return (
             <div className='search-result'>
                 <div className='static-element'>
-                    <div className='logo-header'>
+                    <div className='logo'>
                         <Link to='/'><img src={logo_header} alt='' /></Link>
                     </div>
                 </div>
