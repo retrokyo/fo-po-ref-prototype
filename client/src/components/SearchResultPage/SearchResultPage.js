@@ -6,12 +6,8 @@ import SearchBar from '../SearchBar/SearchBar';
 import logo_header from '../../logo_header.png';
 
 class SearchResultPageWithRouter extends Component {
-
     render() {
-        const { match, location, history } = this.props
-
         return (
-           
             <div className='search-result'>
                 <div className='static-element'>
                     <div className='logo-header'>

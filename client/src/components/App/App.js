@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import SearchResultPage from '../SearchResultPage/SearchResultPage';
 import ProductPage from '../ProductPage/ProductPage';
@@ -29,12 +29,13 @@ class App extends Component {
         <div className='app'>
           <SearchResultPage search={this.dbCall} />
 
-          <Route path={`/product/*`} render={(props) => (
-            <ProductPage {...props} />)} />
+          <Switch>
+            <Route path={`/product/*`} render={(props) => (
+              <ProductPage {...props} />)} />
 
-          <Route path='/results' render={(props) => (
-            <ProductList {...props} products={this.state.dbResponse} />)
-          }/>
+            <Route path='/results' render={(props) => (
+              <ProductList {...props} products={this.state.dbResponse} />)} />
+            </Switch>
         </div>
     );
   };
