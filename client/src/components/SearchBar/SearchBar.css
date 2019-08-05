@@ -95,6 +95,7 @@
   
 input:checked + .slider-round {
     background-color: darkgray;
+    transition: background-color 0.3s;
 }
 
 input:focus + .slider-round {
@@ -118,8 +119,19 @@ input:checked + .slider-round:before {
     align-self: center;
     padding: 0.48em;
     border-style: solid;
+    border-color: darkgray;
     border-radius: 0.4em;
     border-width: 0.12em;
+}
+
+.search-fields:hover,
+.search-bar input:hover,
+.search-bar a:hover {
+    border-color: black;
+}
+
+.search-bar .slider-round:hover {
+    background-color: black;
 }
 
 @media screen and (max-width: 411px) {

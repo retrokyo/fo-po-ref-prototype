@@ -32,13 +32,17 @@ class Product extends Component {
                     <h2 className="product-name">{this.capitalize(this.props.name)}</h2>
                         <div className="product-info">
                             <div className="product-usage">
-                            <h3>Usage</h3>
-                            <ul>{this.arrayParser(this.props.usage)}</ul>
-                         </div>
+                                <h3>Usage</h3>
+                                <ul>{this.arrayParser(this.props.usage)}</ul>
+                            </div>
                             <div className="product-ingredients">
                                 <h3>Ingredients</h3>
                                 <ul>{this.arrayParser(this.props.ingredients)}</ul>
                             </div>
+                            { /*<div className="product-description">
+                                <h3>Description</h3>
+                                <ul>{this.arrayParser(this.props.description)}</ul>
+                            </div> */ }
                         </div>
                     </div>
                 </Link>

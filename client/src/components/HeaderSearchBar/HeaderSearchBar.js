@@ -41,6 +41,7 @@ class HeaderSearchBar extends SearchBar {
                         Let's go
                     </Link>
                 </div> 
+                <span className='about'>About</span> {/* Placeholder */}
             </div>
         );
     }
