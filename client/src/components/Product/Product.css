@@ -4,9 +4,14 @@
     background: whitesmoke;
     border-radius: 7px;
     border-style: solid;
+    border-color: black;
+    border-width: 0.4em;
+    margin-bottom: 0.8em;
+    height: auto;
+}
+
+.product-card:hover {
     border-color: blueviolet;
-    border-width: 1px;
-    margin-bottom: 10px;
 }
 
 .product-image {
@@ -15,19 +20,8 @@
     padding: 16px 19.2px 16px 19.2px;
 }
 
-.product-name {
+.product-description {
     color: black;
-}
-
-.product-info {
-    color: blueviolet;
-}
-
-@media screen and (max-width: 411px) {
-    .product-image {
-        margin-right: 16px;
-        padding: 4px 4.8px 4px 4.8px;
-    }
 }
 
 .product-text {
@@ -40,11 +34,12 @@
     margin-bottom: 8px;
     font-size: 1.1em;
     font-weight: 600;
+    color: black;
 }
 
 .product-info {
     display: inline-flex;
-    flex-direction: row;
+    color: blueviolet;
 }
 
 .product h3 {
@@ -59,4 +54,46 @@
 
 .product-usage {
     margin-right: 10%;
+}
+
+@media screen and (max-width: 411px) {
+    .product-image {
+        margin-right: 16px;
+        padding: 4px 4.8px 4px 4.8px;
+    }
+
+    .product-text {
+        display: inline-flex;
+        flex-direction: column;
+        margin: 16px 0px 16px 0px;
+    }
+
+    .product-name {
+        margin-bottom: 8px;
+        font-size: 1.1em;
+        font-weight: 600;
+    }
+
+    .product-info {
+        display: inline-flex;
+        flex-direction: row;
+    }
+
+    .product h3 {
+        margin-bottom: 0.2em;
+        font-weight: 500;
+    }
+
+    .product-image img {
+        height: 7em;
+        width: 7em;
+    }
+
+    .product-usage {
+        margin-right: 10%;
+    }
+
+    .product-description {
+        color: black;
+    }
 }

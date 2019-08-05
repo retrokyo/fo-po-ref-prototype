@@ -8,13 +8,16 @@
 
 .search-fields-header,
 .switch-header {
-    transition: background-color 0.5s;
+    transition: background-color 0.2s;
 }
 
 .search-bar-header input:hover,
-.search-submit-header a:hover,
-.search-bar-header .slider-round:hover {
-    border-color: black;
+.search-submit-header a:hover {
+    border-color: darkslategray;
+}
+
+.slider-round-header:hover {
+    background-color: darkslategray;
 }
 
 .search-bar-header {
@@ -75,6 +78,7 @@
     bottom: 0;
     background-color: darkgray;
     transition: .4s;
+    transition: background-color 0.2s;
 }
   
 .slider-round-header:before {
@@ -85,7 +89,7 @@
     left: 4px;
     bottom: 4px;
     background-color: whitesmoke;
-    transition: .4s;
+    transition: .2s;
 }
   
 input:checked + .slider-round-header {
@@ -136,9 +140,9 @@ input:checked + .slider-round-header:before {
     margin: 0em 0.8em 0em 0.8em;
     font-weight: bold;
     color: darkgray;
-    transition: color 0.3s;
+    transition: color 0.2s;
 }
 
 .about:hover {
-    color: black;
+    color: darkslategray;
 }
