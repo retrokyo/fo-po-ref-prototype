@@ -1,0 +1,114 @@
+.search-bar-header {
+    background: white;
+    display: flex;
+    height: 3em;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-header {
+    width: auto;
+    height: 3em;
+}
+
+.logo-header img {
+    width: 100%;
+    height: 3em;
+}
+
+.search-fields-header input {
+    width: 25%;
+    min-width: 300px;
+    height: 30px;
+    text-align: left;
+    font: 400 18px Arial;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+.switch-header {
+    display: inline-flex;
+    justify-content: center;
+}
+
+.lang-switch-header {
+    position: relative;
+    display: inline-flex;
+    width: 60px;
+    height: 34px;
+    margin: 0em 0.24em 0em 0.24em;
+}
+  
+/* Hide default HTML checkbox */
+.lang-switch-header input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+/* The slider */
+.slider-round-header {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: darkgray;
+    transition: .4s;
+}
+  
+.slider-round-header:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: whitesmoke;
+    transition: .4s;
+}
+  
+input:checked + .slider-round-header {
+    background-color: darkgray;
+}
+
+input:focus + .slider-round-header {
+    box-shadow: 0 0 1px #2196F3;
+}
+  
+input:checked + .slider-round-header:before {
+    transform: translateX(26px);
+}
+  
+  /* Rounded sliders */
+.slider-round-header {
+    border-radius: 34px;
+}
+  
+.slider-round-header:before {
+    border-radius: 50%;
+}
+
+.loc-tag-header {
+    align-self: center;
+    padding: 0.48em;
+    border-style: solid;
+    border-radius: 0.4em;
+    border-width: 0.12em;
+}
+
+.search-submit-header a {
+    background-color: blueviolet;
+    border-radius: 1em;
+    padding: 0.4em 0.8em 0.4em 0.8em;
+    text-align: center;
+    color: whitesmoke;
+    font-weight: bold;
+    text-decoration-color: whitesmoke;
+    width: 100%;
+    border-style: solid;
+    border-color: darkgray;
+    border-width: 0.2em;
+    margin: 0.16em 0.44em 1em 0.44em;
+}

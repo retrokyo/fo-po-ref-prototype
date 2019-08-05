@@ -30,16 +30,6 @@
     margin-right: 5px;
 }
 
-
-.search-fields select {
-    display: block;
-    width: 5em;
-    border-radius: 0.24em;
-    height: 35px;
-    align-self: center;
-    font-size: 1em;
-}
-
 .search-submit {
     display: inline-flex;
     justify-content: center;

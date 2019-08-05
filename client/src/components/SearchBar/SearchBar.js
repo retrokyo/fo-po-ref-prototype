@@ -39,15 +39,17 @@ class SearchBar extends Component {
     handleEnter(e) {
         if (e.key === 'Enter') {
             this.props.search(this.state.term, this.state.location);
-            this.props.history.push(`/results?term=${this.state.term}&loc=${this.state.location}`);
+            this.props.history.push(`/results?term=${this.state.term}&loc=${this.state.location}`,
+                { term: this.state.term, location: this.state.location });
             e.preventDefault();
         }
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (prevState.location !== this.state.location) {
+        if (prevState.location !== this.state.location && this.props.history.location.pathname === '/results') {
             this.props.search(this.state.term, this.state.location);
-            this.props.history.push(`/results?term=${this.state.term}&loc=${this.state.location}`);
+            this.props.history.push(`/results?term=${this.state.term}&loc=${this.state.location}`,
+                { term: this.state.term, location: this.state.location });
         }
     }
 
@@ -70,7 +72,7 @@ class SearchBar extends Component {
                         pathname: '/results',
                         search: `?term=${this.state.term}&loc=${this.state.location}`,
                         hash: '',
-                        state: {}
+                        state: { term: this.state.term, location: this.state.location }
                     }}>
                         Let's go
                     </Link>
