@@ -6,12 +6,14 @@
     margin: 0em auto 0em 0em;
 }
 
-.search-fields-header,
-.switch-header {
-    transition: background-color 0.2s;
+.search-submit-header a {
+    box-shadow: 2px 2px darkslategray;
+    transition: background-color 1s;
 }
 
-.search-bar-header input:hover,
+.search-bar-header input:hover {
+    border-color: darkslategray;
+}
 .search-submit-header a:hover {
     border-color: darkslategray;
 }
@@ -94,6 +96,11 @@
   
 input:checked + .slider-round-header {
     background-color: darkgray;
+    transition: background-color 0.3s;
+}
+
+input:checked + .slider-round-header:hover {
+    background-color: darkslategray;
 }
 
 input:focus + .slider-round-header {

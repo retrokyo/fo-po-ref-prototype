@@ -18,6 +18,8 @@
     border-radius: 1em;
     padding: 0.16em;
     margin: 0em auto 0em auto;
+    transition: border-color 0.3s;
+    box-shadow: 2px 2px darkslategray;
 }
 
 .search-fields input {
@@ -49,6 +51,8 @@
     border-color: darkgray;
     border-width: 0.5em;
     margin: 0.16em 0.44em 1em 0.44em;
+    box-shadow: 2px 2px darkslategray;
+    transition: border-color 0.3s;
 }
 
 .switch {
@@ -95,6 +99,9 @@
   
 input:checked + .slider-round {
     background-color: darkgray;
+}
+
+.slider-round {
     transition: background-color 0.3s;
 }
 
@@ -126,12 +133,12 @@ input:checked + .slider-round:before {
 
 .search-fields:hover,
 .search-bar input:hover,
-.search-bar a:hover {
-    border-color: black;
+.search-submit a:hover {
+    border-color: darkslategray;
 }
 
 .search-bar .slider-round:hover {
-    background-color: black;
+    background-color: darkslategray;
 }
 
 @media screen and (max-width: 411px) {
