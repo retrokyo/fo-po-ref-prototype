@@ -7,7 +7,7 @@ class SearchBar extends Component {
         super(props);
         this.state = {
             term: '',
-            location: 'jp'
+            loc: 'jp'
         }
 
         this.handleProductChange = this.handleProductChange.bind(this);
@@ -22,34 +22,34 @@ class SearchBar extends Component {
 
     handleLocationChange(e) {
         if (e.target.checked === true) {
-            this.setState({ location: 'us'})
+            this.setState({ loc: 'us'})
         }
 
         else {
-            this.setState({ location: 'jp' })
+            this.setState({ loc: 'jp' })
         }
     }
 
     handleSearch(e) {
-        this.props.search(this.state.term, this.state.location);
+        this.props.search(this.state.term, this.state.loc);
 
         e.preventDefault();
     }
 
     handleEnter(e) {
         if (e.key === 'Enter') {
-            this.props.search(this.state.term, this.state.location);
-            this.props.history.push(`/results?term=${this.state.term}&loc=${this.state.location}`,
-                { term: this.state.term, location: this.state.location });
+            this.props.search(this.state.term, this.state.loc);
+            this.props.history.push(`/results?term=${this.state.term}&loc=${this.state.loc}`,
+                { term: this.state.term, loc: this.state.loc });
             e.preventDefault();
         }
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (prevState.location !== this.state.location && this.props.history.location.pathname === '/results') {
-            this.props.search(this.state.term, this.state.location);
-            this.props.history.push(`/results?term=${this.state.term}&loc=${this.state.location}`,
-                { term: this.state.term, location: this.state.location });
+        if (prevState.loc !== this.state.loc && this.props.history.location.pathname === '/results') {
+            this.props.search(this.state.term, this.state.loc);
+            this.props.history.push(`/results?term=${this.state.term}&loc=${this.state.loc}`,
+                { term: this.state.term, loc: this.state.loc });
         }
     }
 
@@ -70,9 +70,9 @@ class SearchBar extends Component {
                 <div className='search-submit' onClick={this.handleSearch}>
                     <Link to={{
                         pathname: '/results',
-                        search: `?term=${this.state.term}&loc=${this.state.location}`,
+                        search: `?term=${this.state.term}&loc=${this.state.loc}`,
                         hash: '',
-                        state: { term: this.state.term, location: this.state.location }
+                        state: { term: this.state.term, loc: this.state.loc }
                     }}>
                         Let's go
                     </Link>

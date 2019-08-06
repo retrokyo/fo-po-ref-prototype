@@ -27,7 +27,12 @@ class Product extends Component {
                 <div className="product-image">
                     <img src={logo_square} alt="" />
                 </div>
-                <Link to={`/product/${this.props.name}`}>
+                <Link to={{
+                    pathname: `/product/${this.props.name}`,
+                    search: '',
+                    hash: '',
+                    state: {term: this.props.term, loc: this.props.loc}
+                }}>
                     <div className="product-text">
                     <h2 className="product-name">{this.capitalize(this.props.name)}</h2>
                         <div className="product-info">

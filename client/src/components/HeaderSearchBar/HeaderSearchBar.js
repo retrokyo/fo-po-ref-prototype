@@ -9,7 +9,7 @@ class HeaderSearchBar extends SearchBar {
         super(props);
         this.state = {
             term: this.props.term,
-            location: this.props.location
+            loc: this.props.loc
         }
     }
 
@@ -24,7 +24,7 @@ class HeaderSearchBar extends SearchBar {
                     <div className='switch-header'>
                         <label className='loc-tag-header'>JP</label>
                         <label className='lang-switch-header'>
-                            <input type='checkbox' checked={this.state.location === 'us' ? 'checked' : ''}
+                            <input type='checkbox' checked={this.state.loc === 'us' ? 'checked' : ''}
                                 onChange={this.handleLocationChange}/>
                             <span className='slider-round-header'></span>
                         </label>
@@ -34,9 +34,9 @@ class HeaderSearchBar extends SearchBar {
                 <div className='search-submit-header' onClick={this.handleSearch}>
                     <Link to={{
                         pathname: '/results',
-                        search: `?term=${this.state.term}&loc=${this.state.location}`,
+                        search: `?term=${this.state.term}&loc=${this.state.loc}`,
                         hash: '',
-                        state: { term: this.state.term, location: this.state.location }
+                        state: { term: this.state.term, loc: this.state.loc }
                     }}>
                         Let's go
                     </Link>
