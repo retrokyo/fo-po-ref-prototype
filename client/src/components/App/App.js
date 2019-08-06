@@ -18,8 +18,8 @@ class App extends Component {
     this.dbCall = this.dbCall.bind(this);
   }
 
-  dbCall(term, location) {
-    dbCall.search(term, location)
+  dbCall(term, loc) {
+    dbCall.search(term, loc)
     .then((products) => {
       this.setState({ dbResponse: products });
     });
@@ -36,11 +36,11 @@ class App extends Component {
             <Route exact path='/' render={(props) => (
               <SearchResultPage {...props} search={this.dbCall} />)} />
 
-            <Route path='/(.+\/?|\??.*)' render={(props) => (
+            <Route exact path='/(.+\/?|\??.*)' render={(props) => (
               <HeaderSearchBar {...props} 
                 search={this.dbCall}
                 term={this.props.location.state.term}
-                location={this.props.location.state.location}
+                loc={this.props.location.state.loc}
                 />)} />
           </Switch>
 
