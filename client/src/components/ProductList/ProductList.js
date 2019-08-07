@@ -9,9 +9,8 @@ class ProductList extends Component {
             <div>
                 <div className="product-list">
                     {this.props.products.map((product) => {
-                        return (<Product name={product.name}
-                            usage={product.usage}
-                            ingredients ={product.ingredients}
+                        return (<Product name={product.product_name}
+                            product={product}
                             key={product.id} 
                             term={this.props.location.state.term}
                             loc={this.props.location.state.loc} 

@@ -1,0 +1,12 @@
+.product-page {
+    background: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    width: 34%;
+    height: auto;
+    border-radius: 7px;
+    margin: 1.6em 33% 1.6em 33%;
+    border-width: 0.4em;
+    border-color: blueviolet;
+    border-style: solid;
+}

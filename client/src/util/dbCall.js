@@ -9,12 +9,7 @@ const dbCall = {
             if (jsonRes.products) {
                 console.log(JSON.stringify(jsonRes));
                 return jsonRes.products.map((product) => {
-                    return ({
-                        id: product._id,
-                        name: product.product_name,
-                        usage: product.usage,
-                        ingredients: product.ingredients
-                    });
+                    return product;
                 });
             }
         });
