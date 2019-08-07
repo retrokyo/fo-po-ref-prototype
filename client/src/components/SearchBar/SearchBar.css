@@ -18,6 +18,8 @@
     border-radius: 1em;
     padding: 0.16em;
     margin: 0em auto 0em auto;
+    transition: border-color 0.3s;
+    box-shadow: 2px 2px darkslategray;
 }
 
 .search-fields input {
@@ -28,16 +30,6 @@
     font: 400 18px Arial;
     border-radius: 4px;
     margin-right: 5px;
-}
-
-
-.search-fields select {
-    display: block;
-    width: 5em;
-    border-radius: 0.24em;
-    height: 35px;
-    align-self: center;
-    font-size: 1em;
 }
 
 .search-submit {
@@ -59,6 +51,8 @@
     border-color: darkgray;
     border-width: 0.5em;
     margin: 0.16em 0.44em 1em 0.44em;
+    box-shadow: 2px 2px darkslategray;
+    transition: border-color 0.3s;
 }
 
 .switch {
@@ -107,6 +101,10 @@ input:checked + .slider-round {
     background-color: darkgray;
 }
 
+.slider-round {
+    transition: background-color 0.3s;
+}
+
 input:focus + .slider-round {
     box-shadow: 0 0 1px #2196F3;
 }
@@ -128,8 +126,19 @@ input:checked + .slider-round:before {
     align-self: center;
     padding: 0.48em;
     border-style: solid;
+    border-color: darkgray;
     border-radius: 0.4em;
     border-width: 0.12em;
+}
+
+.search-fields:hover,
+.search-bar input:hover,
+.search-submit a:hover {
+    border-color: darkslategray;
+}
+
+.search-bar .slider-round:hover {
+    background-color: darkslategray;
 }
 
 @media screen and (max-width: 411px) {
