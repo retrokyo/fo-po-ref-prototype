@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
-import './App.css';
+import 'purecss/build/pure-min.css';
+import 'purecss/build/grids-responsive-min.css';
 import SearchResultPage from '../SearchResultPage/SearchResultPage';
 import ProductPage from '../ProductPage/ProductPage';
 import ProductList from '../ProductList/ProductList';
@@ -31,7 +32,7 @@ class App extends Component {
 
   render() {
     return (
-        <div className='app'>
+        <div className='pure-g' style={appDivStyle}>
           <Switch>
             <Route exact path='/' render={(props) => (
               <SearchResultPage {...props} search={this.dbCall} />)} />
@@ -56,6 +57,11 @@ class App extends Component {
   };
 }
 
-const appWithRouter = withRouter(App);
+// Styles
+const appDivStyle = {
+  backgroundColor: 'whitesmoke',
+}
 
+// Wrapping Up
+const appWithRouter = withRouter(App);
 export default appWithRouter;
