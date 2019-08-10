@@ -58,7 +58,8 @@ class SearchBar extends Component {
             <React.Fragment>
                 <div className='pure-u-1' style={{height: '1em'}} />
                 <div className='pure-u-1' >
-                    <input 
+                    <input autoFocus
+                        defaultValue='headach'
                         placeholder='What product are you looking for?' 
                         onChange={this.handleProductChange} 
                         onKeyPress={this.handleEnter} 
@@ -74,7 +75,7 @@ class SearchBar extends Component {
                     </label>
                     <label style={langLabelStyle}>US</label>
                 </div>
-                <div className='pure-u-1-24' style={{backgroundColor: 'lightgrey'}} />
+                <div className='pure-u-1-24' />
                 <div className='pure-u-12-24' onClick={this.handleSearch}>
                     <Link className='pure-button' style={{width: '100%',}}
                         to={{
@@ -95,11 +96,10 @@ class SearchBar extends Component {
 
 // Styles
 const searchInputStyle = {
-    fontSize: '1em',
-    height: '1em',
+    fontSize: '1.2em',
+    height: '2.2em',
     width: '100%',
     margin: '0 auto 0 auto',
-    padding: '0.32em',
     borderRadius: '0.2em',
 }
 
