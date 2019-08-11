@@ -59,7 +59,7 @@ class SearchBar extends Component {
                 <div className='pure-u-1' style={{height: '1em'}} />
                 <div className='pure-u-1' >
                     <input autoFocus
-                        defaultValue='headach'
+                        defaultValue=''
                         placeholder='What product are you looking for?' 
                         onChange={this.handleProductChange} 
                         onKeyPress={this.handleEnter} 
