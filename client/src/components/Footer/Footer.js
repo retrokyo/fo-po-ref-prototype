@@ -9,9 +9,7 @@ class Footer extends Component {
                     <img className='pure-img' 
                         src={appStore} 
                         alt='Coming to the Apple and Android App stores.'
-                        style={{
-                            margin: '0.5em auto 0 auto',
-                            maxHeight: '4em'}}
+                        style={appStoreImgStyle}
                     />
                 </div>
             </div>
@@ -26,6 +24,11 @@ const mainFooterDivStyle = {
     right: '0',
     height: '5em',
     backgroundColor: '#4f4f4f'
+}
+
+const appStoreImgStyle = {
+    margin: '0.5em auto 0 auto',
+    maxHeight: '4em'
 }
 
 // Wrapping Up
