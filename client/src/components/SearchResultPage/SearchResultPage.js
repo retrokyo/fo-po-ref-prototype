@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import './SearchResultPage.css';
+// import './SearchResultPage.css';
 import '../SearchBar/SearchBar';
 import SearchBar from '../SearchBar/SearchBar';
 import logo_header from '../../logo_header.png';
@@ -8,18 +8,29 @@ import logo_header from '../../logo_header.png';
 class SearchResultPageWithRouter extends Component {
     render() {
         return (
-            <div className='search-result'>
-                <div className='static-element'>
-                    <div className='logo'>
-                        <Link to='/'><img src={logo_header} alt='' /></Link>
-                    </div>
-                </div>
+            <React.Fragment>
+                <div className='pure-u-1' style={{height: '1em'}} />
+                <div className='pure-u-md-1-3' />
+                <div className='pure-u-1 pure-u-md-1-3' >
+                    <Link to='/' >
+                        <img src={logo_header} alt='FoPoRef' style={mainLogoImgStyle} />
+                    </Link>
                     <SearchBar search={this.props.search} history={this.props.history} />
                 </div>
+                <div className='pure-u-md-1-3' />
+            </React.Fragment>
         );
     };
 }
 
-const SearchResultPage = withRouter(SearchResultPageWithRouter);
+// Styles
+const mainLogoImgStyle = {
+    padding: '1%',
+    height: 'auto',
+    width: '98%', 
+    objectFit: 'contain',
+}
 
+// Wrapping Up
+const SearchResultPage = withRouter(SearchResultPageWithRouter);
 export default SearchResultPage;

@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
-import './App.css';
+import 'purecss/build/pure-min.css';
+import 'purecss/build/grids-responsive-min.css';
 import SearchResultPage from '../SearchResultPage/SearchResultPage';
 import ProductPage from '../ProductPage/ProductPage';
 import ProductList from '../ProductList/ProductList';
 import HeaderSearchBar from '../HeaderSearchBar/HeaderSearchBar';
+import Footer from '../Footer/Footer';
 import dbCall from '../../util/dbCall';
 
 class App extends Component {
@@ -31,17 +33,17 @@ class App extends Component {
 
   render() {
     return (
-        <div className='app'>
+      <React.Fragment>
+        <div className='pure-g' style={appDivStyle}>
           <Switch>
             <Route exact path='/' render={(props) => (
               <SearchResultPage {...props} search={this.dbCall} />)} />
-
             <Route exact path='/(.+\/?|\??.*)' render={(props) => (
               <HeaderSearchBar {...props} 
                 search={this.dbCall}
                 term={this.props.location.state.term}
-                loc={this.props.location.state.loc}
-                />)} />
+                loc={this.props.location.state.loc}/>)} 
+              />
           </Switch>
 
           <Switch>
@@ -52,10 +54,17 @@ class App extends Component {
               <ProductList {...props} products={this.state.dbResponse} />)} />
             </Switch>
         </div>
+        <Footer />
+      </React.Fragment>
     );
   };
 }
 
-const appWithRouter = withRouter(App);
+// Styles
+const appDivStyle = {
+  backgroundColor: 'whitesmoke',
+}
 
+// Wrapping Up
+const appWithRouter = withRouter(App);
 export default appWithRouter;

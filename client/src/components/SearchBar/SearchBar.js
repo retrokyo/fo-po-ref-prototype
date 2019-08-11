@@ -55,31 +55,69 @@ class SearchBar extends Component {
 
     render () {
         return (
-            <div className='search-bar'>
-                <div className='search-fields'>
-                    <input placeholder='What product are you looking for?' onChange={this.handleProductChange} onKeyPress={this.handleEnter} />
-                    <div className='switch'>
-                        <label className='loc-tag'>JP</label>
-                        <label className='lang-switch'>
-                            <input type='checkbox' onChange={this.handleLocationChange}/>
-                            <span className='slider-round'></span>
-                        </label>
-                        <label className='loc-tag'>US</label>
-                    </div>
+            <React.Fragment>
+                <div className='pure-u-1' style={{height: '1em'}} />
+                <div className='pure-u-1' >
+                    <input autoFocus
+                        defaultValue='headach'
+                        placeholder='What product are you looking for?' 
+                        onChange={this.handleProductChange} 
+                        onKeyPress={this.handleEnter} 
+                        style={searchInputStyle}
+                    />
                 </div>
-                <div className='search-submit' onClick={this.handleSearch}>
-                    <Link to={{
-                        pathname: '/results',
-                        search: `?term=${this.state.term}&loc=${this.state.loc}`,
-                        hash: '',
-                        state: { term: this.state.term, loc: this.state.loc }
-                    }}>
+                <div className='pure-u-11-24 switch' style={switchDivStyle}>
+                    <label style={langLabelStyle}>JP</label>
+                    <label className='lang-switch'>
+                        <input type='checkbox' onChange={this.handleLocationChange}/>
+                        <span className='slider-round'></span>
+                    </label>
+                    <label style={langLabelStyle}>US</label>
+                </div>
+                <div className='pure-u-1-24' />
+                <div className='pure-u-12-24' onClick={this.handleSearch}>
+                    <Link className='pure-button pure-button-primary' style={submitButtonStyle}
+                        to={{
+                            pathname: '/results',
+                            search: `?term=${this.state.term}&loc=${this.state.loc}`,
+                            hash: '',
+                            state: { term: this.state.term, loc: this.state.loc }
+                        }}
+                        >
                         Let's go
                     </Link>
-                </div> 
-            </div>
+                </div>
+                <div className='pure-u-1' style={{height: '1em'}} />
+            </React.Fragment>
         )
     }
 }
 
+// Styles
+const searchInputStyle = {
+    fontSize: '1.2em',
+    height: '2.2em',
+    width: '100%',
+    margin: '0 auto 0.3em auto',
+    borderRadius: '0.2em',
+}
+
+const switchDivStyle = {
+    margin: '0 auto 0 0',
+}
+
+const langLabelStyle = {
+    margin: 'auto auto auto auto',
+    padding: '6px',
+    borderStyle: 'solid',
+    borderWidth: '1px',
+    borderRadius: '0.2em',
+}
+
+const submitButtonStyle = {
+    width: '100%', 
+    backgroundColor: 'blueviolet',
+}
+
+// Wrapping Up
 export default SearchBar;
