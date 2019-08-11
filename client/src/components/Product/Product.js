@@ -62,11 +62,13 @@ class Product extends Component {
 
 // Styles
 const productCardStyle = {
-    backgroundColor: 'lightgrey',
+    backgroundColor: 'white',
     margin: '1.5em 0 0 0',
     borderStyle: 'solid',
-    borderWidth: '3px',
-    borderRadius: '0.5em',
+    borderWidth: '2px 1px 2px 1px',
+    borderRadius: '0.3em',
+    boxShadow: '0 0 1px',
+    boxShadowColor: 'lightgrey',
 }
 
 const productImageStyle = {

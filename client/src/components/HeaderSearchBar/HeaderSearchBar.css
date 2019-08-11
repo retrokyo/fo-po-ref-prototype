@@ -26,7 +26,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: darkgray;
+    background-color: blueviolet;
     transition: .4s;
     transition: background-color 0.2s;
 }
@@ -43,12 +43,12 @@
 }
   
 input:checked + .slider-round-header {
-    background-color: darkgray;
+    background-color: blueviolet;
     transition: background-color 0.3s;
 }
 
 input:checked + .slider-round-header:hover {
-    background-color: darkslategray;
+    background-color: blueviolet;
 }
 
 input:focus + .slider-round-header {

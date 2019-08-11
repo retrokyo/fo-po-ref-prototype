@@ -6,6 +6,7 @@ import SearchResultPage from '../SearchResultPage/SearchResultPage';
 import ProductPage from '../ProductPage/ProductPage';
 import ProductList from '../ProductList/ProductList';
 import HeaderSearchBar from '../HeaderSearchBar/HeaderSearchBar';
+import Footer from '../Footer/Footer';
 import dbCall from '../../util/dbCall';
 
 class App extends Component {
@@ -32,17 +33,17 @@ class App extends Component {
 
   render() {
     return (
+      <React.Fragment>
         <div className='pure-g' style={appDivStyle}>
           <Switch>
             <Route exact path='/' render={(props) => (
               <SearchResultPage {...props} search={this.dbCall} />)} />
-
             <Route exact path='/(.+\/?|\??.*)' render={(props) => (
               <HeaderSearchBar {...props} 
                 search={this.dbCall}
                 term={this.props.location.state.term}
-                loc={this.props.location.state.loc}
-                />)} />
+                loc={this.props.location.state.loc}/>)} 
+              />
           </Switch>
 
           <Switch>
@@ -53,6 +54,8 @@ class App extends Component {
               <ProductList {...props} products={this.state.dbResponse} />)} />
             </Switch>
         </div>
+        <Footer />
+      </React.Fragment>
     );
   };
 }

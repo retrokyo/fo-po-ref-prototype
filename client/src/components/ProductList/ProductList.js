@@ -17,6 +17,7 @@ class ProductList extends Component {
                             />);
                     })}
                 </div>
+                <div className='pure-u-1' style={{height: '6.5em'}} />
             </div>
         );
     }
@@ -24,7 +25,7 @@ class ProductList extends Component {
 
 // Styles
 const productListStyle0 = {
-    
+
 }
 
 // Wrapping Up
