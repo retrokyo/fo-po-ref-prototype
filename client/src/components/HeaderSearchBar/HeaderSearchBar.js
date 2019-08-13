@@ -45,7 +45,7 @@ class HeaderSearchBar extends SearchBar {
                 <div className='pure-u-1-2 pure-u-md-3-8 switch-header' >
                     <label className='loc-tag-header' style={langLabelLeftHeaderStyle}>JP</label>
                     <label className='lang-switch-header' style={switchHeaderStyles}>
-                        <input type='checkbox' checked={this.state.loc === 'us' ? 'checked' : ''}
+                        <input type='checkbox' checked={this.props.loc === 'us' ? 'checked' : ''}
                             onChange={this.handleLocationChange}/>
                         <span className='slider-round-header'></span>
                     </label>

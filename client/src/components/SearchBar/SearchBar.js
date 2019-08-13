@@ -45,6 +45,10 @@ class SearchBar extends Component {
         }
     }
 
+    componentDidMount() {
+        document.addEventListener('keydown', this.handleEnter, false);
+    }
+
     componentDidUpdate(prevProps, prevState) {
         if (prevState.loc !== this.state.loc && this.props.history.location.pathname === '/results') {
             this.props.search(this.state.term, this.state.loc);
@@ -62,7 +66,6 @@ class SearchBar extends Component {
                         defaultValue=''
                         placeholder='What product are you looking for?' 
                         onChange={this.handleProductChange} 
-                        onKeyPress={this.handleEnter} 
                         style={searchInputStyle}
                     />
                 </div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
-import 'purecss/build/pure-min.css';
-import 'purecss/build/grids-responsive-min.css';
+import '../../../node_modules/purecss/build/pure-min.css';
+import '../../../node_modules/purecss/build/grids-responsive-min.css';
 import SearchResultPage from '../SearchResultPage/SearchResultPage';
 import ProductPage from '../ProductPage/ProductPage';
 import ProductList from '../ProductList/ProductList';

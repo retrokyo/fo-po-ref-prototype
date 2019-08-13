@@ -30,7 +30,7 @@ class Product extends Component {
                         <img src={logo_square} alt={this.props.product.name} style={productImageStyle} />
                     </div>
                     <Link to={{
-                        pathname: `/product/${this.props.product.name}`,
+                        pathname: `/product/${this.props.name}`,
                         search: '',
                         hash: '',
                         state: {term: this.props.term, loc: this.props.loc, product: this.props.product}
