@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { SearchBar } from '../SearchBar/SearchBar';
 import { connect } from 'react-redux';
@@ -6,7 +6,7 @@ import { termChange, locChange } from '../../actions/actions'
 import logo_header from '../../logo_header.png';
 import './HeaderSearchBar.css';
 
-class HeaderSearchBar extends SearchBar {
+class HeaderSearchBar extends Component {
     constructor(props) {
         super(props);
         this.state = {

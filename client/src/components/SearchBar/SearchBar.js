@@ -131,8 +131,6 @@ const submitButtonStyle = {
 }
 
 // Wrapping Up
-
-// Attaching to Store
 export default connect(
     null,
     {termChange, locChange},
