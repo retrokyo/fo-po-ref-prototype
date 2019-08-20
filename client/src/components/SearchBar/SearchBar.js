@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './SearchBar.css';
+import { connect } from 'react-redux';
+import { termChange, locChange } from '../../actions/actions';
 
 class SearchBar extends Component {
     constructor(props) {
@@ -22,15 +24,17 @@ class SearchBar extends Component {
 
     handleLocationChange(e) {
         if (e.target.checked === true) {
-            this.setState({ loc: 'us'})
+            this.setState({ loc: 'us'});
         }
 
         else {
-            this.setState({ loc: 'jp' })
+            this.setState({ loc: 'jp' });
         }
     }
 
     handleSearch(e) {
+        this.props.termChange(this.state.term);
+        this.props.locChange(this.state.loc);
         this.props.search(this.state.term, this.state.loc);
 
         e.preventDefault();
@@ -38,6 +42,8 @@ class SearchBar extends Component {
 
     handleEnter(e) {
         if (e.key === 'Enter') {
+            this.props.termChange(this.state.term);
+            this.props.locChange(this.state.loc);
             this.props.search(this.state.term, this.state.loc);
             this.props.history.push(`/results?term=${this.state.term}&loc=${this.state.loc}`,
                 { term: this.state.term, loc: this.state.loc });
@@ -123,4 +129,7 @@ const submitButtonStyle = {
 }
 
 // Wrapping Up
-export default SearchBar;
+export default connect(
+    null,
+    {termChange, locChange},
+)(SearchBar);
