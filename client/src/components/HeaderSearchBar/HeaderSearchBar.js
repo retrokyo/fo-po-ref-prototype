@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
@@ -10,7 +10,7 @@ import logo_header from '../../logo_header.png';
 import './HeaderSearchBar.css';
 
 
-class HeaderSearchBar extends SearchBar {
+class HeaderSearchBar extends Component {
     constructor(props) {
         super(props);
         this.state = {
