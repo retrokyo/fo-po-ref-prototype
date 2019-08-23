@@ -1,24 +1,23 @@
 {
-  "name": "fo-po-ref-express",
+  "name": "fo-po-ref-prototype",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently \"nodemon server.js\" \"cd client && npm start\""
+    "start": "concurrently \"cd backend && nodemon server.js\" \"cd client && npm start\""
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/retrokyo/fo-po-ref-prototype.git"
+  },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "concurrently": "^4.1.1",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "mongoose": "^5.6.6"
+  "bugs": {
+    "url": "https://github.com/retrokyo/fo-po-ref-prototype/issues"
   },
-  "devDependencies": {
-    "morgan": "^1.9.1",
-    "nodemon": "^1.19.1"
+  "homepage": "https://github.com/retrokyo/fo-po-ref-prototype#readme",
+  "dependencies": {
+    "concurrently": "^4.1.2"
   }
 }
