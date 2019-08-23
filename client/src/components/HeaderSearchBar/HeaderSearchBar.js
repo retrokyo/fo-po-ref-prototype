@@ -1,11 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import './HeaderSearchBar.css';
-import SearchBar from '../SearchBar/SearchBar'
-import logo_header from '../../logo_header.png';
 
-class HeaderSearchBar extends Component {
+import { SearchBar } from '../SearchBar/SearchBar';
+import { connect } from 'react-redux';
+import { termChange, locChange } from '../../actions/actions'
+
+import logo_header from '../../logo_header.png';
+import './HeaderSearchBar.css';
+
+class HeaderSearchBar extends SearchBar {
     constructor(props) {
         super(props);
         this.state = {
@@ -115,4 +119,7 @@ const switchHeaderStyles = {
 
 
 // Wrapping Up
-export default HeaderSearchBar;
+export default connect(
+    null,
+    {termChange, locChange},
+)(HeaderSearchBar);
