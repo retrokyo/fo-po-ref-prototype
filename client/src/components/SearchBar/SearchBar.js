@@ -4,7 +4,7 @@ import './SearchBar.css';
 import { connect } from 'react-redux';
 import { termChange, locChange } from '../../actions/actions';
 
-class SearchBar extends Component {
+export class SearchBar extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -57,6 +57,8 @@ class SearchBar extends Component {
 
     componentDidUpdate(prevProps, prevState) {
         if (prevState.loc !== this.state.loc && this.props.history.location.pathname === '/results') {
+            this.props.termChange(this.state.term);
+            this.props.locChange(this.state.loc);
             this.props.search(this.state.term, this.state.loc);
             this.props.history.push(`/results?term=${this.state.term}&loc=${this.state.loc}`,
                 { term: this.state.term, loc: this.state.loc });
@@ -129,6 +131,8 @@ const submitButtonStyle = {
 }
 
 // Wrapping Up
+
+// Attaching to Store
 export default connect(
     null,
     {termChange, locChange},
