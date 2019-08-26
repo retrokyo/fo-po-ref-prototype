@@ -8,6 +8,8 @@ import ProductList from '../ProductList/ProductList';
 import HeaderSearchBar from '../HeaderSearchBar/HeaderSearchBar';
 import Footer from '../Footer/Footer';
 import dbCall from '../../util/dbCall';
+import { connect } from 'react-redux';
+import { searchState } from '../../util/searchState';
 
 class App extends Component {
   constructor(props) {
@@ -21,7 +23,7 @@ class App extends Component {
   }
 
   dbCall(term, loc) {
-    dbCall.search(term, loc)
+    dbCall.search(this.props.term, this.props.loc)
     .then((products) => {
       this.setState({ dbResponse: products });
     });
@@ -41,12 +43,9 @@ class App extends Component {
               )}/>
 
             <Route exact path='/(.+\/?|\??.*)' render={(props) => (
-                <HeaderSearchBar {...props} 
-                  search={this.dbCall}
-                  term={this.props.location.state.term}
-                  loc={this.props.location.state.loc}
-                />
-            )}/>
+              <HeaderSearchBar {...props} 
+                search={this.dbCall} />)} 
+              />
           </Switch>
 
           <Switch>
@@ -70,4 +69,7 @@ const appDivStyle = {
 
 // Wrapping Up
 const appWithRouter = withRouter(App);
-export default appWithRouter;
+export default connect(
+  searchState,
+  null,
+  )(appWithRouter);
