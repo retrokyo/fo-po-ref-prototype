@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 //import './ProductList.css';
 import Product from '../Product/Product';
+import { connect } from 'react-redux';
+import { searchState } from '../../util/searchState';
 
 
 class ProductList extends Component {
@@ -12,8 +14,8 @@ class ProductList extends Component {
                         return (<Product name={product.product_name}
                             product={product}
                             key={product.id} 
-                            term={this.props.location.state.term}
-                            loc={this.props.location.state.loc} 
+                            term={this.props.term}
+                            loc={this.props.loc} 
                             />);
                     })}
                 </div>
@@ -29,4 +31,7 @@ const productListStyle0 = {
 }
 
 // Wrapping Up
-export default ProductList;
+export default connect(
+    searchState,
+    null,
+    )(ProductList);
