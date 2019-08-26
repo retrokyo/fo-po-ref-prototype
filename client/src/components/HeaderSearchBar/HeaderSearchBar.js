@@ -10,7 +10,7 @@ import logo_header from '../../logo_header.png';
 import './HeaderSearchBar.css';
 
 
-class HeaderSearchBar extends Component {
+class HeaderSearchBar extends SearchBar {
     constructor(props) {
         super(props);
         this.state = {
@@ -29,40 +29,33 @@ class HeaderSearchBar extends Component {
                     content={ `Foreign Prodcut Reference Web Application Results for query'` + /*Search Term*/ + `'.` } 
                   />
                 </Helmet>
-                <div className='pure-u-1' style={headerBarStyle}>
-                    <div className='pure-u-1 pure-u-md-1-8' >
-                        <Link to='/' >
-                            <img src={logo_header} alt='FoPoRef' style={miniLogoStyle} />
-                        </Link>
-                    </div>
-                    <div className='pure-u-1 pure-u-md-3-8' >
-                        <input autoFocus 
-                            defaultValue={this.props.term}
-                            onChange={this.handleProductChange} 
-                            onKeyPress={this.handleEnter}
-                            style={searchBarHeaderStyle} 
-                            />
-                    </div>
-                    <div className='pure-u-1-2 pure-u-md-1-8' onClick={this.handleSearch}>
-                        <Link className='pure-button pure-button-primary'
-                            to={{
-                                pathname: '/results',
-                                search: `?term=${this.props.term}&loc=${this.props.loc}`
-                            }}
-                            style={searchSubmitHeaderStyle}
-                            >
-                            Let's go
-                        </Link>
-                    </div> 
-                    <div className='pure-u-1-2 pure-u-md-3-8 switch-header' >
-                        <label className='loc-tag-header' style={langLabelLeftHeaderStyle}>JP</label>
-                        <label className='lang-switch-header' style={switchHeaderStyles}>
-                            <input type='checkbox' checked={this.props.loc === 'us' ? 'checked' : ''}
-                                onChange={this.handleLocationChange}/>
-                            <span className='slider-round-header'></span>
-                        </label>
-                        <label className='loc-tag-header' style={langLabelRightHeaderStyle}>US</label>
-                    </div>
+                <div className='pure-u-1 pure-u-md-3-8' >
+                    <input autoFocus 
+                        defaultValue={this.props.term}
+                        onChange={this.handleProductChange} 
+                        onKeyPress={this.handleEnter}
+                        style={searchBarHeaderStyle} 
+                        />
+                </div>
+                <div className='pure-u-1-2 pure-u-md-1-8' onClick={this.handleSearch}>
+                    <Link className='pure-button pure-button-primary'
+                        to={{
+                            pathname: '/results',
+                            search: `?term=${this.props.term}&loc=${this.props.loc}`
+                        }}
+                        style={searchSubmitHeaderStyle}
+                        >
+                        Let's go
+                    </Link>
+                </div> 
+                <div className='pure-u-1-2 pure-u-md-3-8 switch-header' >
+                    <label className='loc-tag-header' style={langLabelLeftHeaderStyle}>JP</label>
+                    <label className='lang-switch-header' style={switchHeaderStyles}>
+                        <input type='checkbox' checked={this.props.loc === 'us' ? 'checked' : ''}
+                            onChange={this.handleLocationChange}/>
+                        <span className='slider-round-header'></span>
+                    </label>
+                    <label className='loc-tag-header' style={langLabelRightHeaderStyle}>US</label>
                 </div>
             </React.Fragment>
         );
