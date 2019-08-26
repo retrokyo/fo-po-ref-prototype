@@ -13,7 +13,6 @@ resultsRouter.get('/', (req, res, next) => {
                 console.log(err);
                 res.sendStatus(404);
             } else if (similarProduct.length) {
-                console.log(similarProduct);
                 Product.aggregate([
                     { 
                         $match: {
@@ -29,13 +28,11 @@ resultsRouter.get('/', (req, res, next) => {
                             console.log(err);
                             res.sendStatus(404);
                         } else {
-                            console.log(products);
                             res.status(200).json({products: products});
                         };
                     }
                 );
             } else {
-                console.log('here we are');
                 Product.find({
                     $and: [{
                         $or: [
