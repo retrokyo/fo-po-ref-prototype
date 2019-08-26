@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './SearchBar.css';
 import { connect } from 'react-redux';
 import { termChange, locChange } from '../../actions/actions';
+import { searchState } from '../../util/searchState';
 
 export class SearchBar extends Component {
     constructor(props) {
@@ -19,34 +20,36 @@ export class SearchBar extends Component {
     }
 
     handleProductChange(e) {
-        this.setState({ term: e.target.value });
+        // this.setState({ term: e.target.value });
+        this.props.termChange(e.target.value);
     }
 
     handleLocationChange(e) {
         if (e.target.checked === true) {
-            this.setState({ loc: 'us'});
+            //this.setState({ loc: 'us'});
+            this.props.locChange('us')
         }
 
         else {
-            this.setState({ loc: 'jp' });
+            //this.setState({ loc: 'jp' });
+            this.props.locChange('jp');
         }
     }
 
     handleSearch(e) {
-        this.props.termChange(this.state.term);
-        this.props.locChange(this.state.loc);
-        this.props.search(this.state.term, this.state.loc);
+        //this.props.termChange(this.state.term);
+        //this.props.locChange(this.state.loc);
+        this.props.search(this.props.term, this.props.loc);
 
         e.preventDefault();
     }
 
     handleEnter(e) {
         if (e.key === 'Enter') {
-            this.props.termChange(this.state.term);
-            this.props.locChange(this.state.loc);
-            this.props.search(this.state.term, this.state.loc);
-            this.props.history.push(`/results?term=${this.state.term}&loc=${this.state.loc}`,
-                { term: this.state.term, loc: this.state.loc });
+            //this.props.termChange(this.state.term);
+            //this.props.locChange(this.state.loc);
+            this.props.search(this.props.term, this.props.loc);
+            this.props.history.push(`/results?term=${this.props.term}&loc=${this.props.loc}`);
             e.preventDefault();
         }
     }
@@ -56,12 +59,11 @@ export class SearchBar extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (prevState.loc !== this.state.loc && this.props.history.location.pathname === '/results') {
-            this.props.termChange(this.state.term);
-            this.props.locChange(this.state.loc);
-            this.props.search(this.state.term, this.state.loc);
-            this.props.history.push(`/results?term=${this.state.term}&loc=${this.state.loc}`,
-                { term: this.state.term, loc: this.state.loc });
+        if (prevProps.loc !== this.props.loc && this.props.history.location.pathname === '/results') {
+            //this.props.termChange(this.state.term);
+            //this.props.locChange(this.state.loc);
+            this.props.search(this.props.term, this.props.loc);
+            this.props.history.push(`/results?term=${this.props.term}&loc=${this.props.loc}`);
         }
     }
 
@@ -73,7 +75,7 @@ export class SearchBar extends Component {
                     <input autoFocus
                         defaultValue=''
                         placeholder='What product are you looking for?' 
-                        onChange={this.handleProductChange} 
+                        onInput={this.handleProductChange} 
                         style={searchInputStyle}
                     />
                 </div>
@@ -90,9 +92,7 @@ export class SearchBar extends Component {
                     <Link className='pure-button pure-button-primary' style={submitButtonStyle}
                         to={{
                             pathname: '/results',
-                            search: `?term=${this.state.term}&loc=${this.state.loc}`,
-                            hash: '',
-                            state: { term: this.state.term, loc: this.state.loc }
+                            search: `?term=${this.props.term}&loc=${this.props.loc}`
                         }}
                         >
                         Let's go
@@ -134,6 +134,6 @@ const submitButtonStyle = {
 
 // Attaching to Store
 export default connect(
-    null,
+    searchState,
     {termChange, locChange},
 )(SearchBar);

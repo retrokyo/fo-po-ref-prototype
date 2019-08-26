@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import { SearchBar } from '../SearchBar/SearchBar';
 import { connect } from 'react-redux';
 import { termChange, locChange } from '../../actions/actions'
+import { searchState } from '../../util/searchState';
 import logo_header from '../../logo_header.png';
 import './HeaderSearchBar.css';
+
 
 class HeaderSearchBar extends SearchBar {
     constructor(props) {
@@ -14,7 +16,7 @@ class HeaderSearchBar extends SearchBar {
             loc: this.props.loc
         }
     }
-
+    
     render () {
         return (
             <div className='pure-u-1' style={headerBarStyle}>
@@ -25,22 +27,20 @@ class HeaderSearchBar extends SearchBar {
                 </div>
                 <div className='pure-u-1 pure-u-md-3-8' >
                     <input autoFocus 
-                        value={this.state.term} 
+                        defaultValue={this.props.term}
                         onChange={this.handleProductChange} 
                         onKeyPress={this.handleEnter}
                         style={searchBarHeaderStyle} 
-                    />
+                        />
                 </div>
                 <div className='pure-u-1-2 pure-u-md-1-8' onClick={this.handleSearch}>
-                    <Link className='pure-button pure-button-primary' 
+                    <Link className='pure-button pure-button-primary'
                         to={{
                             pathname: '/results',
-                            search: `?term=${this.state.term}&loc=${this.state.loc}`,
-                            hash: '',
-                            state: { term: this.state.term, loc: this.state.loc }
+                            search: `?term=${this.props.term}&loc=${this.props.loc}`
                         }}
                         style={searchSubmitHeaderStyle}
-                    >
+                        >
                         Let's go
                     </Link>
                 </div> 
@@ -104,9 +104,8 @@ const switchHeaderStyles = {
     margin: '0.5em 0 0 0',
 }
 
-
 // Wrapping Up
 export default connect(
-    null,
+    searchState,
     {termChange, locChange},
-)(HeaderSearchBar);
+    )(HeaderSearchBar);
