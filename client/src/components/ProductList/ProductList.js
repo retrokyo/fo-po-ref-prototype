@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 //import './ProductList.css';
 import Product from '../Product/Product';
 import { connect } from 'react-redux';
-import { searchState } from '../../util/searchState';
+import { searchStateMap } from '../../redux/util/searchStateMap';
 
 
 class ProductList extends Component {
@@ -32,6 +32,6 @@ const productListStyle0 = {
 
 // Wrapping Up
 export default connect(
-    searchState,
+    searchStateMap,
     null,
     )(ProductList);
