@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './SearchBar.css';
+
 import { connect } from 'react-redux';
-import { termChange, locChange } from '../../actions/actions';
-import { searchState } from '../../util/searchState';
+import { termChange, locChange } from '../../redux/actions';
+import { searchStateMap } from '../../redux/util/searchStateMap';
 
 export class SearchBar extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            term: '',
-            loc: 'jp'
-        }
 
         this.handleProductChange = this.handleProductChange.bind(this);
         this.handleLocationChange = this.handleLocationChange.bind(this);
@@ -130,10 +127,14 @@ const submitButtonStyle = {
     backgroundColor: 'blueviolet',
 }
 
-// Wrapping Up
+// Map Dispatch to Props
+const mapDispatchToProps = (dispatch) => ({
+    termChange: (term) => {dispatch(termChange(term))},
+    locChange: (loc) => {dispatch(locChange(loc))},
+});
 
-// Attaching to Store
+// Wrapping Up
 export default connect(
-    searchState,
-    {termChange, locChange},
+    searchStateMap,
+    mapDispatchToProps,
 )(SearchBar);
