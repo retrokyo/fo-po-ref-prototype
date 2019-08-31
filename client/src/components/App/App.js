@@ -41,7 +41,10 @@ class App extends Component {
               <React.Fragment>
                 <Helmet>
                   <title>FoPoRef</title>
-                  <meta name="description" content="Foreign Product Reference Web Application" />
+                  <meta 
+                    name="description" 
+                    content="Foreign Product Reference Web Application" 
+                  />
                 </Helmet>
                 <SearchResultPage {...props} search={this.dbCall} />
               </React.Fragment>
@@ -50,7 +53,10 @@ class App extends Component {
               <React.Fragment>
                 <Helmet>
                   <title>FoPoRef Results: {this.props.location.state.term}</title>
-                  <meta name="description" content={ `Foreign Prodcut Reference Web Application Results for query'` + this.props.location.state.term + `'.` } />
+                  <meta 
+                    name="description" 
+                    content={ `Foreign Prodcut Reference Web Application Results for query'` + this.props.location.state.term + `'.` } 
+                  />
                 </Helmet>
                 <HeaderSearchBar {...props} 
                   search={this.dbCall}
@@ -65,8 +71,11 @@ class App extends Component {
             <Route path={`/product/*`} render={(props) => (
               <React.Fragment>
                 <Helmet>
-                  <title>FoPoRef found: { /* Not sure what to put here yet */ }</title>
-                  <meta name="description" content="Placeholder3" />
+                  <title>FoPoRef found: { this.props.location.state.product.product_name }</title>
+                  <meta 
+                    name="description" 
+                    content={`Foreign Product Reference Web Application providing information about'` + this.props.location.state.product.product_name + `'.` } 
+                  />
                 </Helmet>
                 <ProductPage {...props} />
               </React.Fragment>
@@ -75,8 +84,11 @@ class App extends Component {
             <Route path='/results' render={(props) => (
               <React.Fragment>
                 <Helmet>
-                  <title>FoPoRef results: { /* Insert search term here */ }</title>
-                  <meta name="description" content="Placeholder4" />
+                  <title>FoPoRef results: { this.props.location.state.term }</title>
+                  <meta 
+                    name="description" 
+                    content={`Placeholder` /* Not really in use yet so I don't know what to put for the description. */ } 
+                  />
                 </Helmet>
                 <ProductList {...props} products={this.state.dbResponse} />
               </React.Fragment>
