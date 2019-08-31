@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import '../../../node_modules/purecss/build/pure-min.css';
 import '../../../node_modules/purecss/build/grids-responsive-min.css';
 import SearchResultPage from '../SearchResultPage/SearchResultPage';
@@ -37,21 +38,49 @@ class App extends Component {
         <div className='pure-g' style={appDivStyle}>
           <Switch>
             <Route exact path='/' render={(props) => (
-              <SearchResultPage {...props} search={this.dbCall} />)} />
+              <React.Fragment>
+                <Helmet>
+                  <title>FoPoRef</title>
+                  <meta name="description" content="Foreign Product Reference Web Application" />
+                </Helmet>
+                <SearchResultPage {...props} search={this.dbCall} />
+              </React.Fragment>
+            )}/>
             <Route exact path='/(.+\/?|\??.*)' render={(props) => (
-              <HeaderSearchBar {...props} 
-                search={this.dbCall}
-                term={this.props.location.state.term}
-                loc={this.props.location.state.loc}/>)} 
-              />
+              <React.Fragment>
+                <Helmet>
+                  <title>FoPoRef Results: {this.props.location.state.term}</title>
+                  <meta name="description" content={ `Foreign Prodcut Reference Web Application Results for query'` + this.props.location.state.term + `'.` } />
+                </Helmet>
+                <HeaderSearchBar {...props} 
+                  search={this.dbCall}
+                  term={this.props.location.state.term}
+                  loc={this.props.location.state.loc}
+                />
+              </React.Fragment>
+            )}/>
           </Switch>
 
           <Switch>
             <Route path={`/product/*`} render={(props) => (
-              <ProductPage {...props} />)} />
+              <React.Fragment>
+                <Helmet>
+                  <title>FoPoRef found: { /* Not sure what to put here yet */ }</title>
+                  <meta name="description" content="Placeholder3" />
+                </Helmet>
+                <ProductPage {...props} />
+              </React.Fragment>
+            )}/>
 
             <Route path='/results' render={(props) => (
-              <ProductList {...props} products={this.state.dbResponse} />)} />
+              <React.Fragment>
+                <Helmet>
+                  <title>FoPoRef results: { /* Insert search term here */ }</title>
+                  <meta name="description" content="Placeholder4" />
+                </Helmet>
+                <ProductList {...props} products={this.state.dbResponse} />
+              </React.Fragment>
+            )}/>
             </Switch>
         </div>
         <Footer />
