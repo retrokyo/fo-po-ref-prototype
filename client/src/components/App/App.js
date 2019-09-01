@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 import '../../../node_modules/purecss/build/pure-min.css';
 import '../../../node_modules/purecss/build/grids-responsive-min.css';
 import SearchResultPage from '../SearchResultPage/SearchResultPage';
@@ -38,60 +37,23 @@ class App extends Component {
         <div className='pure-g' style={appDivStyle}>
           <Switch>
             <Route exact path='/' render={(props) => (
-              <React.Fragment>
-                <Helmet>
-                  <title>FoPoRef</title>
-                  <meta 
-                    name="description" 
-                    content="Foreign Product Reference Web Application" 
-                  />
-                </Helmet>
-                <SearchResultPage {...props} search={this.dbCall} />
-              </React.Fragment>
-            )}/>
+              <SearchResultPage {...props} search={this.dbCall} />
+              )}/>
+
             <Route exact path='/(.+\/?|\??.*)' render={(props) => (
-              <React.Fragment>
-                <Helmet>
-                  <title>FoPoRef Results: {this.props.location.state.term}</title>
-                  <meta 
-                    name="description" 
-                    content={ `Foreign Prodcut Reference Web Application Results for query'` + this.props.location.state.term + `'.` } 
-                  />
-                </Helmet>
                 <HeaderSearchBar {...props} 
                   search={this.dbCall}
                   term={this.props.location.state.term}
                   loc={this.props.location.state.loc}
                 />
-              </React.Fragment>
             )}/>
           </Switch>
 
           <Switch>
-            <Route path={`/product/*`} render={(props) => (
-              <React.Fragment>
-                <Helmet>
-                  <title>FoPoRef found: { this.props.location.state.product.product_name }</title>
-                  <meta 
-                    name="description" 
-                    content={`Foreign Product Reference Web Application providing information about'` + this.props.location.state.product.product_name + `'.` } 
-                  />
-                </Helmet>
-                <ProductPage {...props} />
-              </React.Fragment>
-            )}/>
+            <Route path={`/product/*`} render={(props) => (<ProductPage {...props} />)}/>
 
             <Route path='/results' render={(props) => (
-              <React.Fragment>
-                <Helmet>
-                  <title>FoPoRef results: { this.props.location.state.term }</title>
-                  <meta 
-                    name="description" 
-                    content={`Placeholder` /* Not really in use yet so I don't know what to put for the description. */ } 
-                  />
-                </Helmet>
                 <ProductList {...props} products={this.state.dbResponse} />
-              </React.Fragment>
             )}/>
             </Switch>
         </div>
