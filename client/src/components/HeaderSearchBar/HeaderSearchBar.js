@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import './HeaderSearchBar.css';
 import SearchBar from '../SearchBar/SearchBar'
 import logo_header from '../../logo_header.png';
@@ -15,43 +16,53 @@ class HeaderSearchBar extends SearchBar {
 
     render () {
         return (
-            <div className='pure-u-1' style={headerBarStyle}>
-                <div className='pure-u-1 pure-u-md-1-8' >
-                    <Link to='/' >
-                        <img src={logo_header} alt='FoPoRef' style={miniLogoStyle} />
-                    </Link>
+            <React.Fragment>
+                <Helmet>
+                  <title>FoPoRef Results: {/*Search Terms */}</title>
+                  <meta 
+                    name="description" 
+                    content={ `Foreign Prodcut Reference Web Application Results for query'` + /*Search Term*/ + `'.` } 
+                  />
+                </Helmet>
+            
+                <div className='pure-u-1' style={headerBarStyle}>
+                    <div className='pure-u-1 pure-u-md-1-8' >
+                        <Link to='/' >
+                            <img src={logo_header} alt='FoPoRef' style={miniLogoStyle} />
+                        </Link>
+                    </div>
+                    <div className='pure-u-1 pure-u-md-3-8' >
+                        <input autoFocus 
+                            value={this.state.term} 
+                            onChange={this.handleProductChange} 
+                            onKeyPress={this.handleEnter}
+                            style={searchBarHeaderStyle} 
+                        />
+                    </div>
+                    <div className='pure-u-1-2 pure-u-md-1-8' onClick={this.handleSearch}>
+                        <Link className='pure-button pure-button-primary' 
+                            to={{
+                                pathname: '/results',
+                                search: `?term=${this.state.term}&loc=${this.state.loc}`,
+                                hash: '',
+                                state: { term: this.state.term, loc: this.state.loc }
+                            }}
+                            style={searchSubmitHeaderStyle}
+                        >
+                            Let's go
+                        </Link>
+                    </div> 
+                    <div className='pure-u-1-2 pure-u-md-3-8 switch-header' >
+                        <label className='loc-tag-header' style={langLabelLeftHeaderStyle}>JP</label>
+                        <label className='lang-switch-header' style={switchHeaderStyles}>
+                            <input type='checkbox' checked={this.props.loc === 'us' ? 'checked' : ''}
+                                onChange={this.handleLocationChange}/>
+                            <span className='slider-round-header'></span>
+                        </label>
+                        <label className='loc-tag-header' style={langLabelRightHeaderStyle}>US</label>
+                    </div>
                 </div>
-                <div className='pure-u-1 pure-u-md-3-8' >
-                    <input autoFocus 
-                        value={this.state.term} 
-                        onChange={this.handleProductChange} 
-                        onKeyPress={this.handleEnter}
-                        style={searchBarHeaderStyle} 
-                    />
-                </div>
-                <div className='pure-u-1-2 pure-u-md-1-8' onClick={this.handleSearch}>
-                    <Link className='pure-button pure-button-primary' 
-                        to={{
-                            pathname: '/results',
-                            search: `?term=${this.state.term}&loc=${this.state.loc}`,
-                            hash: '',
-                            state: { term: this.state.term, loc: this.state.loc }
-                        }}
-                        style={searchSubmitHeaderStyle}
-                    >
-                        Let's go
-                    </Link>
-                </div> 
-                <div className='pure-u-1-2 pure-u-md-3-8 switch-header' >
-                    <label className='loc-tag-header' style={langLabelLeftHeaderStyle}>JP</label>
-                    <label className='lang-switch-header' style={switchHeaderStyles}>
-                        <input type='checkbox' checked={this.props.loc === 'us' ? 'checked' : ''}
-                            onChange={this.handleLocationChange}/>
-                        <span className='slider-round-header'></span>
-                    </label>
-                    <label className='loc-tag-header' style={langLabelRightHeaderStyle}>US</label>
-                </div>
-            </div>
+            </React.Fragment>
         );
     }
 }

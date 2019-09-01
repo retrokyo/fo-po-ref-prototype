@@ -37,21 +37,24 @@ class App extends Component {
         <div className='pure-g' style={appDivStyle}>
           <Switch>
             <Route exact path='/' render={(props) => (
-              <SearchResultPage {...props} search={this.dbCall} />)} />
+              <SearchResultPage {...props} search={this.dbCall} />
+              )}/>
+
             <Route exact path='/(.+\/?|\??.*)' render={(props) => (
-              <HeaderSearchBar {...props} 
-                search={this.dbCall}
-                term={this.props.location.state.term}
-                loc={this.props.location.state.loc}/>)} 
-              />
+                <HeaderSearchBar {...props} 
+                  search={this.dbCall}
+                  term={this.props.location.state.term}
+                  loc={this.props.location.state.loc}
+                />
+            )}/>
           </Switch>
 
           <Switch>
-            <Route path={`/product/*`} render={(props) => (
-              <ProductPage {...props} />)} />
+            <Route path={`/product/*`} render={(props) => (<ProductPage {...props} />)}/>
 
             <Route path='/results' render={(props) => (
-              <ProductList {...props} products={this.state.dbResponse} />)} />
+                <ProductList {...props} products={this.state.dbResponse} />
+            )}/>
             </Switch>
         </div>
         <Footer />

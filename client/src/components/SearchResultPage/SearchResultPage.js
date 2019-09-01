@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 // import './SearchResultPage.css';
 import '../SearchBar/SearchBar';
 import SearchBar from '../SearchBar/SearchBar';
@@ -9,6 +10,13 @@ class SearchResultPageWithRouter extends Component {
     render() {
         return (
             <React.Fragment>
+                <Helmet>
+                  <title>FoPoRef</title>
+                  <meta 
+                    name="description" 
+                    content="Foreign Product Reference Web Application" 
+                  />
+                </Helmet>
                 <div className='pure-u-1' style={{height: '1em'}} />
                 <div className='pure-u-md-1-3' />
                 <div className='pure-u-1 pure-u-md-1-3' >
