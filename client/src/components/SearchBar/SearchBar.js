@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './SearchBar.css';
 
-class SearchBar extends Component {
+import { connect } from 'react-redux';
+import { termChange, locChange } from '../../redux/actions';
+import { searchStateMap } from '../../redux/util/searchStateMap';
+
+export class SearchBar extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            term: '',
-            loc: 'jp'
-        }
 
         this.handleProductChange = this.handleProductChange.bind(this);
         this.handleLocationChange = this.handleLocationChange.bind(this);
@@ -17,30 +17,36 @@ class SearchBar extends Component {
     }
 
     handleProductChange(e) {
-        this.setState({ term: e.target.value });
+        // this.setState({ term: e.target.value });
+        this.props.termChange(e.target.value);
     }
 
     handleLocationChange(e) {
         if (e.target.checked === true) {
-            this.setState({ loc: 'us'})
+            //this.setState({ loc: 'us'});
+            this.props.locChange('us')
         }
 
         else {
-            this.setState({ loc: 'jp' })
+            //this.setState({ loc: 'jp' });
+            this.props.locChange('jp');
         }
     }
 
     handleSearch(e) {
-        this.props.search(this.state.term, this.state.loc);
+        //this.props.termChange(this.state.term);
+        //this.props.locChange(this.state.loc);
+        this.props.search(this.props.term, this.props.loc);
 
         e.preventDefault();
     }
 
     handleEnter(e) {
         if (e.key === 'Enter') {
-            this.props.search(this.state.term, this.state.loc);
-            this.props.history.push(`/results?term=${this.state.term}&loc=${this.state.loc}`,
-                { term: this.state.term, loc: this.state.loc });
+            //this.props.termChange(this.state.term);
+            //this.props.locChange(this.state.loc);
+            this.props.search(this.props.term, this.props.loc);
+            this.props.history.push(`/results?term=${this.props.term}&loc=${this.props.loc}`);
             e.preventDefault();
         }
     }
@@ -50,10 +56,11 @@ class SearchBar extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (prevState.loc !== this.state.loc && this.props.history.location.pathname === '/results') {
-            this.props.search(this.state.term, this.state.loc);
-            this.props.history.push(`/results?term=${this.state.term}&loc=${this.state.loc}`,
-                { term: this.state.term, loc: this.state.loc });
+        if (prevProps.loc !== this.props.loc && this.props.history.location.pathname === '/results') {
+            //this.props.termChange(this.state.term);
+            //this.props.locChange(this.state.loc);
+            this.props.search(this.props.term, this.props.loc);
+            this.props.history.push(`/results?term=${this.props.term}&loc=${this.props.loc}`);
         }
     }
 
@@ -65,7 +72,7 @@ class SearchBar extends Component {
                     <input autoFocus
                         defaultValue=''
                         placeholder='What product are you looking for?' 
-                        onChange={this.handleProductChange} 
+                        onInput={this.handleProductChange} 
                         style={searchInputStyle}
                     />
                 </div>
@@ -82,9 +89,7 @@ class SearchBar extends Component {
                     <Link className='pure-button pure-button-primary' style={submitButtonStyle}
                         to={{
                             pathname: '/results',
-                            search: `?term=${this.state.term}&loc=${this.state.loc}`,
-                            hash: '',
-                            state: { term: this.state.term, loc: this.state.loc }
+                            search: `?term=${this.props.term}&loc=${this.props.loc}`
                         }}
                         >
                         Let's go
@@ -122,5 +127,14 @@ const submitButtonStyle = {
     backgroundColor: 'blueviolet',
 }
 
+// Map Dispatch to Props
+const mapDispatchToProps = (dispatch) => ({
+    termChange: (term) => {dispatch(termChange(term))},
+    locChange: (loc) => {dispatch(locChange(loc))},
+});
+
 // Wrapping Up
-export default SearchBar;
+export default connect(
+    searchStateMap,
+    mapDispatchToProps,
+)(SearchBar);

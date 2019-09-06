@@ -1,17 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import './HeaderSearchBar.css';
-import SearchBar from '../SearchBar/SearchBar'
-import logo_header from '../../logo_header.png';
 
+import { SearchBar } from '../SearchBar/SearchBar';
+
+import { connect } from 'react-redux';
+import { termChange, locChange, resetState } from '../../redux/actions';
+import { searchStateMap } from '../../redux/util/searchStateMap';
+
+import logo_header from '../../logo_header.png';
+import './HeaderSearchBar.css';
+
+//Component Class
 class HeaderSearchBar extends SearchBar {
     constructor(props) {
         super(props);
-        this.state = {
-            term: this.props.term,
-            loc: this.props.loc
-        }
+
+        this.handleHomeLink = this.handleHomeLink.bind(this);
+    }
+    
+    //Reset Redux State when returning to home page
+    handleHomeLink(e) {
+        this.props.resetState();
     }
 
     render () {
@@ -24,31 +34,28 @@ class HeaderSearchBar extends SearchBar {
                     content={ `Foreign Prodcut Reference Web Application Results for query'` + /*Search Term*/ + `'.` } 
                   />
                 </Helmet>
-            
                 <div className='pure-u-1' style={headerBarStyle}>
                     <div className='pure-u-1 pure-u-md-1-8' >
                         <Link to='/' >
-                            <img src={logo_header} alt='FoPoRef' style={miniLogoStyle} />
+                            <img src={logo_header} alt='FoPoRef' style={miniLogoStyle} onClick={this.handleHomeLink}/>
                         </Link>
                     </div>
                     <div className='pure-u-1 pure-u-md-3-8' >
                         <input autoFocus 
-                            value={this.state.term} 
+                            defaultValue={this.props.term}
                             onChange={this.handleProductChange} 
                             onKeyPress={this.handleEnter}
                             style={searchBarHeaderStyle} 
-                        />
+                            />
                     </div>
                     <div className='pure-u-1-2 pure-u-md-1-8' onClick={this.handleSearch}>
-                        <Link className='pure-button pure-button-primary' 
+                        <Link className='pure-button pure-button-primary'
                             to={{
                                 pathname: '/results',
-                                search: `?term=${this.state.term}&loc=${this.state.loc}`,
-                                hash: '',
-                                state: { term: this.state.term, loc: this.state.loc }
+                                search: `?term=${this.props.term}&loc=${this.props.loc}`
                             }}
                             style={searchSubmitHeaderStyle}
-                        >
+                            >
                             Let's go
                         </Link>
                     </div> 
@@ -113,6 +120,15 @@ const switchHeaderStyles = {
     margin: '0.5em 0 0 0',
 }
 
+// Map Dispatch to Props
+const mapDispatchToProps = (dispatch) => ({
+    termChange: (term) => {dispatch(termChange(term))},
+    locChange: (loc) => {dispatch(locChange(loc))},
+    resetState: () => {dispatch(resetState())}
+});
 
 // Wrapping Up
-export default HeaderSearchBar;
+export default connect(
+    searchStateMap,
+    mapDispatchToProps,
+    )(HeaderSearchBar);
