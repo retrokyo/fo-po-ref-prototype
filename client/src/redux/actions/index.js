@@ -1,4 +1,4 @@
-import { TERM_CHANGE, LOC_CHANGE, RESET } from './types';
+import { TERM_CHANGE, LOC_CHANGE, RESET, DBCALL } from './types';
 
 export function termChange(term) {
     return {
@@ -18,4 +18,11 @@ export function resetState() {
     return {
         type: RESET
     };
+}
+
+export function dbCall(products) {
+    return {
+        type: DBCALL,
+        products
+    }
 }
