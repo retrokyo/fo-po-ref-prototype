@@ -1,4 +1,5 @@
-import { TERM_CHANGE, LOC_CHANGE, RESET, DBCALL } from './types';
+import { TERM_CHANGE, LOC_CHANGE, RESET, REQUEST } from './types';
+import dbCall from '../../util/dbCall';
 
 export function termChange(term) {
     return {
@@ -20,9 +21,17 @@ export function resetState() {
     };
 }
 
-export function dbCall(products) {
+export function requestProducts(products) {
     return {
-        type: DBCALL,
+        type: REQUEST,
         products
     }
+}
+
+export function reduxDbCall(term, loc) {
+    return function(dispatch) {
+        return dbCall(term, loc).then(
+            (products) => dispatch(requestProducts(products))
+        );
+    };
 }
