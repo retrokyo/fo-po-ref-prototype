@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import './SearchBar.css';
 
 import { connect } from 'react-redux';
-import { termChange, locChange } from '../../redux/actions';
-import { searchStateMap } from '../../redux/util/searchStateMap';
+import { termChange, locChange, reduxDbCall } from '../../redux/actions';
+import { searchStateMap } from '../../redux/util/mapStateToProps';
 
 export class SearchBar extends Component {
     constructor(props) {
@@ -131,6 +131,7 @@ const submitButtonStyle = {
 const mapDispatchToProps = (dispatch) => ({
     termChange: (term) => {dispatch(termChange(term))},
     locChange: (loc) => {dispatch(locChange(loc))},
+    search: (term, loc) => {dispatch(reduxDbCall(term, loc))}
 });
 
 // Wrapping Up
