@@ -6,7 +6,7 @@ import { SearchBar } from '../SearchBar/SearchBar';
 
 import { connect } from 'react-redux';
 import { termChange, locChange, resetState } from '../../redux/actions';
-import { searchStateMap } from '../../redux/util/searchStateMap';
+import { searchStateMap } from '../../redux/util/mapStateToProps';
 
 import logo_header from '../../logo_header.png';
 import './HeaderSearchBar.css';
