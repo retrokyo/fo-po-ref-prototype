@@ -1,7 +1,7 @@
 import {TERM_CHANGE, LOC_CHANGE, RESET } from '../actions/types';
-import { initialState } from '../util/initialState';
+import { initialSearchState } from '../util/initialState';
 
-function searchState(state=initialState, action) {
+function searchState(state=initialSearchState, action) {
     switch (action.type) {
         case TERM_CHANGE:
             return Object.assign({}, state, {
@@ -14,7 +14,7 @@ function searchState(state=initialState, action) {
             });
 
         case RESET:
-            return Object.assign({}, state, initialState);
+            return Object.assign({}, state, initialSearchState);
             
         default:
             return state;

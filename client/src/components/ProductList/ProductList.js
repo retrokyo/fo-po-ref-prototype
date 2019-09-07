@@ -1,21 +1,18 @@
+//React
 import React, { Component } from 'react';
-//import './ProductList.css';
+
+//Components
 import Product from '../Product/Product';
-import { Helmet } from 'react-helmet';
+
+//React-Redux
 import { connect } from 'react-redux';
-import { searchStateMap } from '../../redux/util/searchStateMap';
+import { mapStateToProps } from '../../redux/util/mapStateToProps';
 
 
 class ProductList extends Component {
     render() {
         return (
             <React.Fragment>
-                <Helmet>
-                    <title>FoPoRef results: { /*Search Term*/ }</title>
-                    <meta 
-                        name="description" 
-                        content={`Placeholder` /* Not really in use yet so I don't know what to put for the description. */ }/>
-                </Helmet>
             <div className='pure-u-1'>
                 <div className="product-list" styles={productListStyle0}>
                     {this.props.products.map((product) => {
@@ -39,8 +36,9 @@ const productListStyle0 = {
 
 }
 
+
 // Wrapping Up
 export default connect(
-    searchStateMap,
+    mapStateToProps,
     null,
     )(ProductList);

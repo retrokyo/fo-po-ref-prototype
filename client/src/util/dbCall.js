@@ -1,5 +1,4 @@
-const dbCall = {
-    search: (term, location) => {
+function dbCall (term, location) {
         return fetch(`http://localhost:4000/results?term=${term}&loc=${location}`)
         .then((res) => {
             return res.json();
@@ -11,7 +10,6 @@ const dbCall = {
                 });
             }
         });
-    },
 }
 
 export default dbCall;
