@@ -10,9 +10,6 @@ import ProductPage from '../ProductPage/ProductPage';
 import ProductList from '../ProductList/ProductList';
 import HeaderSearchBar from '../HeaderSearchBar/HeaderSearchBar';
 import Footer from '../Footer/Footer';
-// Redux
-import { connect } from 'react-redux';
-/* import { searchStateMap } from '../../redux/util/mapStateToProps'; */
 
 class App extends Component {
   constructor(props) {

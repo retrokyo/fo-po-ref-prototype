@@ -1,26 +1,16 @@
+//React, React-Router
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+
+//Styling imports
 import './Product.css';
 import logo_square from '../../logo_square.png';
+
+//Helper function imports
 import capitalize from '../../util/capitalize';
 import arrayToLi from '../../util/arrayToLi';
 
 class Product extends Component {
-    constructor(props){
-        super(props);
-
-        this.arrayParser = this.arrayParser.bind(this);
-        this.capitalize = this.capitalize.bind(this);
-    }
-
-    capitalize(str) {
-        return capitalize(str);
-    }
-
-    arrayParser(array) {
-        return arrayToLi(array);
-    }
-
     render() {
         return (
             <React.Fragment>
@@ -36,15 +26,15 @@ class Product extends Component {
                         state: {term: this.props.term, loc: this.props.loc, product: this.props.product}
                     }}>
                         <div className="pure-u-1 pure-u-md-2-3 product-text" style={productTextStyle}>
-                            <h2 className="pure-u-1 product-name">{this.capitalize(this.props.product.product_name)}</h2>
+                            <h2 className="pure-u-1 product-name">{capitalize(this.props.product.product_name)}</h2>
                             <div className="pure-u-1 product-info">
                                 <div className="pure-u-1 pure-u-md-1-2 product-usage">
                                     <h3>Usage</h3>
-                                    <ul>{this.arrayParser(this.props.product.usage)}</ul>
+                                    <ul>{arrayToLi(this.props.product.usage)}</ul>
                                 </div>
                                 <div className="pure-u-1 pure-u-md-1-2 product-ingredients">
                                     <h3>Ingredients</h3>
-                                    <ul>{this.arrayParser(this.props.product.ingredients)}</ul>
+                                    <ul>{arrayToLi(this.props.product.ingredients)}</ul>
                                 </div>
                                 { /*<div className="product-description">
                                     <h3>Description</h3>

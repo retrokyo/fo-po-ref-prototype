@@ -1,13 +1,17 @@
+// React, React-Router, React-Helmet
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
+//Super class component
 import { SearchBar } from '../SearchBar/SearchBar';
 
+//React-Redux
 import { connect } from 'react-redux';
 import { termChange, locChange, resetState, reduxDbCall } from '../../redux/actions';
 import { searchStateMap } from '../../redux/util/mapStateToProps';
 
+// Styling imports
 import logo_header from '../../logo_header.png';
 import './HeaderSearchBar.css';
 
@@ -28,10 +32,10 @@ class HeaderSearchBar extends SearchBar {
         return (
             <React.Fragment>
                 <Helmet>
-                  <title>FoPoRef Results: {/*Search Terms */}</title>
+                  <title>FoPoRef Results: {this.props.term}</title>
                   <meta 
                     name="description" 
-                    content={ `Foreign Prodcut Reference Web Application Results for query'` + /*Search Term*/ + `'.` } 
+                    content={ `Foreign Prodcut Reference Web Application Results for query'` + this.props.term + `'.` } 
                   />
                 </Helmet>
                 <div className='pure-u-1' style={headerBarStyle}>

@@ -1,12 +1,15 @@
+//React, React-Router, React-Helmet
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-// import './SearchResultPage.css';
-import '../SearchBar/SearchBar';
+
+//Component import
 import SearchBar from '../SearchBar/SearchBar';
+
+//Style imports
 import logo_header from '../../logo_header.png';
 
-class SearchResultPageWithRouter extends Component {
+class SearchResultPage extends Component {
     render() {
         return (
             <React.Fragment>
@@ -23,7 +26,7 @@ class SearchResultPageWithRouter extends Component {
                     <Link to='/' >
                         <img src={logo_header} alt='FoPoRef' style={mainLogoImgStyle} />
                     </Link>
-                    <SearchBar search={this.props.search} history={this.props.history} />
+                    <SearchBar history={this.props.history} />
                 </div>
                 <div className='pure-u-md-1-3' />
             </React.Fragment>
@@ -40,5 +43,4 @@ const mainLogoImgStyle = {
 }
 
 // Wrapping Up
-const SearchResultPage = withRouter(SearchResultPageWithRouter);
 export default SearchResultPage;

@@ -1,6 +1,8 @@
+//React, React-Helmet
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
-//import './ProductPage.css';
+
+//Helper function imports
 import capitalize from '../../util/capitalize';
 import arrayToLi from '../../util/arrayToLi';
 
