@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Product from '../Product/Product';
 import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
-import { searchStateMap } from '../../redux/util/searchStateMap';
+import { mapStateToProps } from '../../redux/util/mapStateToProps';
 
 
 class ProductList extends Component {
@@ -39,8 +39,9 @@ const productListStyle0 = {
 
 }
 
+
 // Wrapping Up
 export default connect(
-    searchStateMap,
+    mapStateToProps,
     null,
     )(ProductList);
